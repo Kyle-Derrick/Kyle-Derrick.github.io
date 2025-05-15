@@ -1,48 +1,48 @@
-name: deploy
+# name: deploy
 
-on:
-    push:
-        branches:
-            - master
-    # workflow_dispatch:
-    # schedule:
-    #     # Runs everyday at 8:00 AM
-    #     - cron: "0 0 * * *"
+# on:
+#     push:
+#         branches:
+#             - master
+#     # workflow_dispatch:
+#     # schedule:
+#     #     # Runs everyday at 8:00 AM
+#     #     - cron: "0 0 * * *"
 
-jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  submodules: true
-                  fetch-depth: 0
-                  persist-credentials: true
+# jobs:
+#     build:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Checkout
+#               uses: actions/checkout@v4
+#               with:
+#                   submodules: true
+#                   fetch-depth: 0
+#                   persist-credentials: true
 
-            - name: Setup Hugo
-              uses: peaceiris/actions-hugo@v2
-              with:
-                  hugo-version: "latest"
+#             - name: Setup Hugo
+#               uses: peaceiris/actions-hugo@v2
+#               with:
+#                   hugo-version: "latest"
 
-            - name: Build Web
-              run: hugo
+#             - name: Build Web
+#               run: hugo
 
-            - name: Commit artifacts
-              run: |
-                git config --global user.name "GitHub Actions Bot"
-                git config --global user.email "github-actions@example.com"
-                git add ./docs
-                git commit -m "chore: Auto-commit build artifacts [skip ci]" || echo "No changes to commit"
-                git push origin HEAD:master
-              env:
-                GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+#             - name: Commit artifacts
+#               run: |
+#                 git config --global user.name "GitHub Actions Bot"
+#                 git config --global user.email "github-actions@example.com"
+#                 git add ./docs
+#                 git commit -m "chore: Auto-commit build artifacts [skip ci]" || echo "No changes to commit"
+#                 git push origin HEAD:master
+#               env:
+#                 GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
 
-            # - name: Deploy Web
-            #   uses: peaceiris/actions-gh-pages@v3
-            #   with:
-            #       PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-            #       EXTERNAL_REPOSITORY: pseudoyu/pseudoyu.github.io
-            #       PUBLISH_BRANCH: master
-            #       PUBLISH_DIR: ./public
-            #       commit_message: ${{ github.event.head_commit.message }}
+#             # - name: Deploy Web
+#             #   uses: peaceiris/actions-gh-pages@v3
+#             #   with:
+#             #       PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+#             #       EXTERNAL_REPOSITORY: pseudoyu/pseudoyu.github.io
+#             #       PUBLISH_BRANCH: master
+#             #       PUBLISH_DIR: ./public
+#             #       commit_message: ${{ github.event.head_commit.message }}
