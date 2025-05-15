@@ -42,7 +42,7 @@ jobs:
             hugo-version: "latest"
             
       - name: Build Web
-        run: hugo
+        run: hugo --gc --minify --cleanDestinationDir
 
       - name: Commit artifacts
         run: |
