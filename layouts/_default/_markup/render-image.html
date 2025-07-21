@@ -12,8 +12,8 @@
     {{- end -}}
   {{- else -}}
     {{/* 新增逻辑：非 index.md 的本地相对路径添加 ../ */}}
-    {{- if (ne .PageInner.File.LogicalName "index.md") -}}
-      {{- $src = printf "../%s" $src -}}
+    {{- if and (not (hasPrefix $u.Path "/")) (ne .PageInner.File.LogicalName "index.md") -}}
+      {{- $src = printf "../%s" $path -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

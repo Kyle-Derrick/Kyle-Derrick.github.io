@@ -6,5 +6,4 @@
             "strings": false
         }
     },
-    "files.exclude": { ".tmp": true }
 }

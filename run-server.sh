@@ -1,3 +1,3 @@
 #!/bin/bash
 
-hugo server -D --destination .tmp
+hugo --cleanDestinationDir server -D --destination .tmp

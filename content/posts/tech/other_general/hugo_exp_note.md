@@ -3,47 +3,13 @@ title: 'hugo使用经验'
 author: ['kyle']
 summary: 'hugo使用过程中的一些经验记录'
 date: '2025-07-21T15:42:35+08:00'
+tags:
+- hugo
+
+keywords:
+- hugo
 #hidemeta: true
 ---
-
-# hugo图片引入问题
-> 除了绝对路径和 xxx/index.md 放案，还可以这样：
->
-> 修改 render_image.html (/layouts/_default/_markup/render_image.html)
-
-```html
-{{- $u := urls.Parse .Destination -}}
-{{- $src := $u.String -}}
-{{- if not $u.IsAbs -}}
-  {{- $path := strings.TrimPrefix "./" $u.Path }}
-  {{- with or (.PageInner.Resources.Get $path) (resources.Get $path) -}}
-    {{- $src = .RelPermalink -}}
-    {{- with $u.RawQuery -}}
-      {{- $src = printf "%s?%s" $src . -}}
-    {{- end -}}
-    {{- with $u.Fragment -}}
-      {{- $src = printf "%s#%s" $src . -}}
-    {{- end -}}
-  {{/* 新增逻辑：非 index.md 的本地相对路径添加 ../ */}}
-  {{- else -}}
-    {{- if (ne .PageInner.File.LogicalName "index.md") -}}
-      {{- $src = printf "../%s" $src -}}
-    {{- end -}}
-  {{- end -}}
-  {{- 一直到这里 -}}
-{{- end -}}
-{{- $attributes := merge .Attributes (dict "alt" .Text "src" $src "title" (.Title | transform.HTMLEscape) "loading" "lazy") -}}
-<img
-  {{- range $k, $v := $attributes -}}
-    {{- if $v -}}
-      {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
-    {{- end -}}
-  {{- end -}}>
-{{- /**/ -}}
-
-```
-
-> 这样你就可以直接在 xxx.md 中直接使用 img/xxx_1.1.png 引入图片了
 
 #  杂项记录点
 

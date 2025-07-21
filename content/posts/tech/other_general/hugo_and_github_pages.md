@@ -1,7 +1,14 @@
 ---
 title: 'Hugo使用PaperMod主题搭建博客，并配置自动发布Github Pages'
 author: ["kyle"]
+description: 'Hugo使用PaperMod主题搭建博客，并配置自动发布Github Pages'
 date: '2025-05-15T17:41:53+08:00'
+tags:
+- hugo
+
+keywords:
+- hugo
+- 博客搭建
 ---
 
 # 1. Hugo部分
