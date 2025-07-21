@@ -2,8 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_exp_note/</loc>
+    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+  </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/</loc>
-    <lastmod>2025-07-21T14:44:55+08:00</lastmod>
+    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/</loc>
+    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/</loc>
+    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/</loc>
+    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_giscus_comment/</loc>
+    <lastmod>2025-07-21T15:29:04+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/vscode/</loc>
     <lastmod>2025-07-21T14:44:55+08:00</lastmod>
@@ -11,16 +26,7 @@
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/vscode/vscode-project-config/</loc>
     <lastmod>2025-07-21T14:44:55+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/</loc>
-    <lastmod>2025-07-21T14:44:55+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/</loc>
-    <lastmod>2025-07-21T14:44:55+08:00</lastmod>
-  </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_and_github_pages/</loc>
-    <lastmod>2025-05-15T17:41:53+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/</loc>
     <lastmod>2025-05-15T17:41:53+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/about/</loc>
