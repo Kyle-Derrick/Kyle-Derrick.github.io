@@ -6,13 +6,55 @@
     <description>Recent content in Tags on Kyle&#39;s Notebook</description>
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 21 Jul 2025 19:40:14 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 22:53:34 +0800</lastBuildDate>
     <atom:link href="https://Kyle-Derrick.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust</title>
+      <link>https://Kyle-Derrick.github.io/zh/tags/rust/</link>
+      <pubDate>Mon, 21 Jul 2025 22:53:34 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/tags/rust/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redis</title>
+      <link>https://Kyle-Derrick.github.io/zh/tags/redis/</link>
+      <pubDate>Mon, 21 Jul 2025 22:42:37 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/tags/redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gradle</title>
+      <link>https://Kyle-Derrick.github.io/zh/tags/gradle/</link>
+      <pubDate>Mon, 21 Jul 2025 22:30:46 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/tags/gradle/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://Kyle-Derrick.github.io/zh/tags/java/</link>
+      <pubDate>Mon, 21 Jul 2025 22:30:46 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Maven</title>
+      <link>https://Kyle-Derrick.github.io/zh/tags/maven/</link>
+      <pubDate>Mon, 21 Jul 2025 22:30:46 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/tags/maven/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Hugo</title>
       <link>https://Kyle-Derrick.github.io/zh/tags/hugo/</link>
       <pubDate>Mon, 21 Jul 2025 19:40:14 +0800</pubDate>
       <guid>https://Kyle-Derrick.github.io/zh/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vscode</title>
+      <link>https://Kyle-Derrick.github.io/zh/tags/vscode/</link>
+      <pubDate>Mon, 21 Jul 2025 14:44:55 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/tags/vscode/</guid>
       <description></description>
     </item>
   </channel>
