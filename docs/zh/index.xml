@@ -44,11 +44,11 @@
       <description>Hugo使用PaperMod主题搭建博客，并配置自动发布Github Pages</description>
     </item>
     <item>
-      <title>About</title>
+      <title>关于我</title>
       <link>https://Kyle-Derrick.github.io/zh/about/</link>
       <pubDate>Wed, 14 May 2025 23:44:48 +0800</pubDate>
       <guid>https://Kyle-Derrick.github.io/zh/about/</guid>
-      <description>关于 Kyle&amp;#39;s Notebook</description>
+      <description>关于 Kyle&amp;rsquo;s Notebook</description>
     </item>
   </channel>
 </rss>
