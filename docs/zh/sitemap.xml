@@ -2,40 +2,85 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Kyle-Derrick.github.io/zh/</loc>
+    <lastmod>2025-07-21T22:53:34+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/rust/</loc>
+    <lastmod>2025-07-21T22:53:34+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/rust/%E5%9B%BD%E5%86%85%E6%BA%90%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2025-07-21T22:53:34+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/</loc>
+    <lastmod>2025-07-21T22:53:34+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/</loc>
+    <lastmod>2025-07-21T22:53:34+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/</loc>
+    <lastmod>2025-07-21T22:53:34+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/rust/%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8F%8A%E7%A6%BB%E7%BA%BF%E4%BE%9D%E8%B5%96/</loc>
+    <lastmod>2025-07-21T22:50:40+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/rust/</loc>
+    <lastmod>2025-07-21T22:49:44+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/redis/</loc>
+    <lastmod>2025-07-21T22:42:37+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open-source-component/redis/redis_concurrency_case/</loc>
+    <lastmod>2025-07-21T22:42:37+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open-source-component/redis/</loc>
+    <lastmod>2025-07-21T22:40:15+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open-source-component/</loc>
+    <lastmod>2025-07-21T22:40:15+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/gradle/</loc>
+    <lastmod>2025-07-21T22:30:46+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/java/</loc>
+    <lastmod>2025-07-21T22:30:46+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/maven/</loc>
+    <lastmod>2025-07-21T22:30:46+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/java/maven_gradle_mirror/</loc>
+    <lastmod>2025-07-21T22:30:46+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/java/</loc>
+    <lastmod>2025-07-21T22:27:41+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo/</loc>
+    <lastmod>2025-07-21T22:23:03+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/</loc>
+    <lastmod>2025-07-21T22:23:03+08:00</lastmod>
+  </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/tags/hugo/</loc>
     <lastmod>2025-07-21T19:40:14+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_include_image/</loc>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo/hugo_include_image/</loc>
     <lastmod>2025-07-21T19:40:14+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/</loc>
-    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/tags/</loc>
-    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/</loc>
-    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/</loc>
-    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/</loc>
-    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_exp_note/</loc>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo/hugo_exp_note/</loc>
     <lastmod>2025-07-21T15:42:35+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_giscus_comment/</loc>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo/hugo_giscus_comment/</loc>
     <lastmod>2025-07-21T15:29:04+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/vscode/</loc>
     <lastmod>2025-07-21T14:44:55+08:00</lastmod>
   </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/vscode/</loc>
+    <lastmod>2025-07-21T14:44:55+08:00</lastmod>
+  </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/vscode/vscode-project-config/</loc>
     <lastmod>2025-07-21T14:44:55+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_and_github_pages/</loc>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo/hugo_and_github_pages/</loc>
     <lastmod>2025-05-15T17:41:53+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/about/</loc>
