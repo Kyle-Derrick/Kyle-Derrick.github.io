@@ -55,7 +55,7 @@ menu:
       weight: 2
     - identifier: posts
       name: 文章
-      url: /posts
+      url: posts
       weight: 3
     - identifier: archives
       name: 时间轴
@@ -67,11 +67,11 @@ menu:
     #   weight: 30
     - identifier: tags
       name: 标签
-      url: /tags
+      url: tags
       weight: 40
     - identifier: about
       name: 关于
-      url: /about
+      url: about
       weight: 50
     # - identifier: links
     #   name: 🤝友链
