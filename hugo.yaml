@@ -184,8 +184,9 @@ params:
         minMatchCharLength: 0
         keys: ["title", "permalink", "summary", "content"]
 
-    twikoo:
-      version: 1.4.11
+    # twikoop评论系统
+    # twikoo:
+    #   version: 1.4.11
 
 taxonomies:
     category: categories  # 分类系统使用 /categories/ 路径
@@ -193,9 +194,9 @@ taxonomies:
     series: series        # 系列文章使用 /series/ 路径
 
 markup:
-    goldmark:
-        renderer:
-            unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
+    # goldmark:
+    #     renderer:
+    #         unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
     highlight:
         # anchorLineNos: true
         codeFences: true
