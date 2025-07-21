@@ -1,0 +1,9 @@
+{
+    "[markdown]": { 
+        "editor.quickSuggestions": {
+            "other": true,   // 允许代码片段在非注释/字符串区域触发
+            "comments": false,
+            "strings": false
+        }
+    },
+}

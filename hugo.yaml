@@ -89,14 +89,14 @@ params:
     defaultTheme: auto  # 自动切换深色/浅色模式
     disableThemeToggle: false # 允许用户手动切换主题
     DateFormat: "2006-01-02"
-    ShowShareButtons: true
+    ShowShareButtons: false
     ShowReadingTime: true
     # disableSpecialistPost: true
     displayFullLangName: true
     ShowPostNavLinks: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true # 显示代码复制按钮
-    hideFooter: false # 隐藏页脚
+    hideFooter: true # 隐藏页脚
     ShowWordCounts: true
     VisitCount: true
 
