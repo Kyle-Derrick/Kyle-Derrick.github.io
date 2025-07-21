@@ -6,21 +6,6 @@
     <description>Recent content in Categories on Kyle&#39;s Notebook</description>
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 14 May 2025 23:44:48 +0800</lastBuildDate>
     <atom:link href="https://Kyle-Derrick.github.io/zh/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Category 1</title>
-      <link>https://Kyle-Derrick.github.io/zh/categories/category-1/</link>
-      <pubDate>Wed, 14 May 2025 23:44:48 +0800</pubDate>
-      <guid>https://Kyle-Derrick.github.io/zh/categories/category-1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Category 2</title>
-      <link>https://Kyle-Derrick.github.io/zh/categories/category-2/</link>
-      <pubDate>Wed, 14 May 2025 23:44:48 +0800</pubDate>
-      <guid>https://Kyle-Derrick.github.io/zh/categories/category-2/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>

@@ -6,8 +6,15 @@
     <description>Recent content on Kyle&#39;s Notebook</description>
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 21 Jul 2025 15:42:35 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 19:40:14 +0800</lastBuildDate>
     <atom:link href="https://Kyle-Derrick.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo从同级目录下插入图片（相对路径）</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_include_image/</link>
+      <pubDate>Mon, 21 Jul 2025 19:40:14 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_include_image/</guid>
+      <description>通过修改 render_image.html 调整 img 生成逻辑以达到从相对路径插入图片的目的</description>
+    </item>
     <item>
       <title>hugo使用经验</title>
       <link>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_exp_note/</link>
@@ -34,18 +41,14 @@
       <link>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_and_github_pages/</link>
       <pubDate>Thu, 15 May 2025 17:41:53 +0800</pubDate>
       <guid>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_and_github_pages/</guid>
-      <description>&lt;h1 id=&#34;1-hugo部分&#34;&gt;1. Hugo部分&lt;/h1&gt;
-&lt;h2 id=&#34;11-安装hugo&#34;&gt;1.1. 安装Hugo&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo/releases/latest&#34;&gt;https://github.com/gohugoio/hugo/releases/latest&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;根据自己的操作系统下载 hugo_extended_withdeploy_xxx，我这里是Ubuntu，所以下载的 hugo_extended_withdeploy_0.147.3_linux-amd64.deb&lt;/p&gt;</description>
+      <description>Hugo使用PaperMod主题搭建博客，并配置自动发布Github Pages</description>
     </item>
     <item>
       <title>About</title>
       <link>https://Kyle-Derrick.github.io/zh/about/</link>
       <pubDate>Wed, 14 May 2025 23:44:48 +0800</pubDate>
       <guid>https://Kyle-Derrick.github.io/zh/about/</guid>
-      <description></description>
+      <description>关于 Kyle&amp;#39;s Notebook</description>
     </item>
   </channel>
 </rss>

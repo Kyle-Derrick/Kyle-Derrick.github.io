@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_exp_note/</loc>
-    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/hugo/</loc>
+    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_include_image/</loc>
+    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/</loc>
-    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/</loc>
+    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/</loc>
-    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/</loc>
-    <lastmod>2025-07-21T15:42:35+08:00</lastmod>
+    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/</loc>
+    <lastmod>2025-07-21T19:40:14+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_exp_note/</loc>
     <lastmod>2025-07-21T15:42:35+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/other_general/hugo_giscus_comment/</loc>
@@ -32,25 +41,9 @@
     <loc>https://Kyle-Derrick.github.io/zh/about/</loc>
     <lastmod>2025-05-14T23:44:48+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/categories/</loc>
-    <lastmod>2025-05-14T23:44:48+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/categories/category-1/</loc>
-    <lastmod>2025-05-14T23:44:48+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/categories/category-2/</loc>
-    <lastmod>2025-05-14T23:44:48+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/tags/tag-1/</loc>
-    <lastmod>2025-05-14T23:44:48+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/tags/tag-2/</loc>
-    <lastmod>2025-05-14T23:44:48+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/tags/</loc>
-    <lastmod>2025-05-14T23:44:48+08:00</lastmod>
-  </url><url>
     <loc>https://Kyle-Derrick.github.io/archives/</loc>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/categories/</loc>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/series/</loc>
   </url><url>
