@@ -9,6 +9,7 @@ tags:
 keywords:
 - hugo
 - 博客搭建
+- PaperMod
 ---
 
 # 1. Hugo部分
@@ -51,6 +52,14 @@ static  | 存储所有静态内容：图片、.css、.js等，当使用 Hugo 生
 resources   | 缓存一些文件来加速站点生成
 themes  | 保存主题
 config.yml  | 个人博客主题样式配置文件
+
+### 引入 PaperMod 主题项目
+
+```sh
+git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+
+git submodule update --init --recursive
+```
 
 ## 1.3. 编辑 config.yml 文件
 可以参考官方的进行修改：https://github.com/adityatelange/hugo-PaperMod/wiki/Installation#sample-hugoyml
@@ -496,6 +505,6 @@ jobs:
 ## 2.3. 配置GitHub Pages设置
 > 配置 Build and deployment 下的 Source 为 GitHub Actions
 
-![alt text](img/hagp_2.3.png)
+![配置示例](img/hagp_2.3.png)
 
 > 完成

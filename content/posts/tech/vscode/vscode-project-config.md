@@ -3,7 +3,12 @@ title: 'vscode项目级配置'
 author: ['kyle']
 summary: '[此文为随笔随记]通过对项目下的 .vscode 目录添加配置达到项目级配置的目的，这样就不用每个环境都修改配置了'
 date: '2025-07-21T14:44:55+08:00'
-# draft: true
+tags:
+- vscode
+
+keywords:
+- vscode
+- .vscode
 ---
 
 # settings.json 配置

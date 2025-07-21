@@ -9,6 +9,11 @@
 			"date: '${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}+08:00'",
 			"draft: true",
             "#hidemeta: true",
+			"#tags:",
+			"#- xxx",
+			"#",
+			"#keywords:",
+			"#- xxx",
 			"---",
 			""
 		],
