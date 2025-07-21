@@ -176,12 +176,13 @@ params:
 
     fuseOpts: # 搜索功能配置
         isCaseSensitive: false  # 不区分大小写
+        includeMatches: true
         shouldSort: true
         location: 0
         distance: 1000
-        threshold: 1            # 搜索敏感度
+        threshold: 0.1            # 搜索敏感度
         minMatchCharLength: 0
-        keys: ["title", "permalink", "summary"]
+        keys: ["title", "permalink", "summary", "content"]
 
     twikoo:
       version: 1.4.11

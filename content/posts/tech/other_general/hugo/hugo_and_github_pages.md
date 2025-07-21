@@ -248,7 +248,7 @@ params:
         shouldSort: true
         location: 0
         distance: 1000
-        threshold: 1            # 搜索敏感度
+        threshold: 0.1            # 搜索敏感度
         minMatchCharLength: 0
         keys: ["title", "permalink", "summary"]
 
