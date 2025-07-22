@@ -6,4 +6,7 @@
             "strings": false
         }
     },
+    "markdown.copyFiles.destination": {
+        "**/*.md": "img/${documentBaseName}/${fileName}"
+    }
 }
