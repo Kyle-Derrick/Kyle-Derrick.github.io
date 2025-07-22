@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>WireGuard on Kyle&#39;s Notebook</title>
+    <link>https://Kyle-Derrick.github.io/zh/tags/wireguard/</link>
+    <description>Recent content in WireGuard on Kyle&#39;s Notebook</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 22 Jul 2025 22:58:51 +0800</lastBuildDate>
+    <atom:link href="https://Kyle-Derrick.github.io/zh/tags/wireguard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WireGuard服务部署</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/linux/wireguard%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Tue, 22 Jul 2025 22:58:51 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/linux/wireguard%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</guid>
+      <description>&lt;h3 id=&#34;一虚拟机aubuntu-20配置&#34;&gt;&lt;strong&gt;一、虚拟机A（Ubuntu 20）配置&lt;/strong&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;1-安装wireguard&#34;&gt;&lt;strong&gt;1. 安装WireGuard&lt;/strong&gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install wireguard resolvconf  &lt;span class=&#34;c1&#34;&gt;# 安装WireGuard和DNS工具（如需）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;2-生成服务器密钥对&#34;&gt;&lt;strong&gt;2. 生成服务器密钥对&lt;/strong&gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 生成私钥和公钥&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo &lt;span class=&#34;nb&#34;&gt;umask&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;077&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 确保密钥文件权限安全&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo wg genkey &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/wireguard/server_private.key &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; wg pubkey &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/wireguard/server_public.key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;3-配置wireguard服务端&#34;&gt;&lt;strong&gt;3. 配置WireGuard服务端&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;创建配置文件 &lt;code&gt;/etc/wireguard/wg0.conf&lt;/code&gt;：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

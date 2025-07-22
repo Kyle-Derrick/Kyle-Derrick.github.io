@@ -3,16 +3,139 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://Kyle-Derrick.github.io/zh/</loc>
-    <lastmod>2025-07-22T14:38:34+08:00</lastmod>
+    <lastmod>2025-07-22T23:19:37+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/network/</loc>
+    <lastmod>2025-07-22T23:19:37+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/tags/</loc>
-    <lastmod>2025-07-22T14:38:34+08:00</lastmod>
+    <lastmod>2025-07-22T23:19:37+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/network/knowledge/udp%E6%89%93%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2025-07-22T23:19:37+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/</loc>
-    <lastmod>2025-07-22T14:38:34+08:00</lastmod>
+    <lastmod>2025-07-22T23:19:37+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/</loc>
-    <lastmod>2025-07-22T14:38:34+08:00</lastmod>
+    <lastmod>2025-07-22T23:19:37+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/linux/</loc>
+    <lastmod>2025-07-22T23:17:36+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/%E4%BA%92%E8%81%94barrier/</loc>
+    <lastmod>2025-07-22T23:17:36+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2025-07-22T23:17:36+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/rust/</loc>
+    <lastmod>2025-07-22T23:11:48+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/%E5%BC%80%E6%BA%90/</loc>
+    <lastmod>2025-07-22T23:11:48+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/open_source_lib/</loc>
+    <lastmod>2025-07-22T23:11:48+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/</loc>
+    <lastmod>2025-07-22T23:10:14+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/esxi/</loc>
+    <lastmod>2025-07-22T23:08:01+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/esxi7%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%8B%E9%9A%86%E8%84%9A%E6%9C%AC%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2025-07-22T23:08:01+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <lastmod>2025-07-22T23:08:01+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/ubuntu/</loc>
+    <lastmod>2025-07-22T23:05:18+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/ubuntu%E6%B8%85%E5%8D%8E%E6%BA%90/</loc>
+    <lastmod>2025-07-22T23:05:18+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/windows/</loc>
+    <lastmod>2025-07-22T23:04:29+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2025-07-22T23:04:29+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/linux%E4%BD%9C%E4%B8%BA%E7%BD%91%E5%85%B3%E6%8F%90%E4%BE%9B%E8%B7%AF%E7%94%B1/</loc>
+    <lastmod>2025-07-22T23:02:49+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/ipsec/</loc>
+    <lastmod>2025-07-22T23:00:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/ipsec_ikev2%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-07-22T23:00:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/vpn/</loc>
+    <lastmod>2025-07-22T23:00:17+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/wireguard/</loc>
+    <lastmod>2025-07-22T22:58:51+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/wireguard%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-07-22T22:58:51+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/smb/</loc>
+    <lastmod>2025-07-22T22:56:40+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/smb%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-07-22T22:56:40+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/centos/</loc>
+    <lastmod>2025-07-22T22:48:13+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7%E6%9C%80%E5%B0%8F%E5%AE%89%E8%A3%85%E5%90%8E%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2025-07-22T22:48:13+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7%E4%BD%BF%E7%94%A8%E9%AB%98%E7%89%88%E6%9C%ACgcc/</loc>
+    <lastmod>2025-07-22T22:47:31+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/%E5%BA%95%E5%B1%82%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2025-07-22T22:40:49+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/system_level/%E5%86%85%E5%AD%98%E7%BC%93%E5%86%B2%E5%8C%BA%E4%BC%AA%E8%A3%85%E6%96%87%E4%BB%B6%E6%B5%81/</loc>
+    <lastmod>2025-07-22T22:40:49+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82/</loc>
+    <lastmod>2025-07-22T22:40:49+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/system_level/</loc>
+    <lastmod>2025-07-22T22:39:27+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7_nodejs%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2025-07-22T22:32:31+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/tags/nodejs/</loc>
+    <lastmod>2025-07-22T22:32:31+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/linux/</loc>
+    <lastmod>2025-07-22T22:31:27+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/strongswan%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2025-07-22T22:29:33+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/ipsec%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2025-07-22T22:14:22+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/</loc>
+    <lastmod>2025-07-22T22:07:39+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/</loc>
+    <lastmod>2025-07-22T22:07:39+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/network/</loc>
+    <lastmod>2025-07-22T22:07:39+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/network/knowledge/</loc>
+    <lastmod>2025-07-22T22:07:39+08:00</lastmod>
+  </url><url>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/rust/%E8%AE%B0%E5%BD%95%E7%82%B9/</loc>
+    <lastmod>2025-07-22T21:51:45+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/tags/%E7%A0%94%E7%A9%B6/</loc>
     <lastmod>2025-07-22T14:38:34+08:00</lastmod>
@@ -22,9 +145,6 @@
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/plan/</loc>
     <lastmod>2025-07-22T14:36:48+08:00</lastmod>
-  </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/tags/rust/</loc>
-    <lastmod>2025-07-21T22:53:34+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/posts/tech/rust/%E5%9B%BD%E5%86%85%E6%BA%90%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2025-07-21T22:53:34+08:00</lastmod>
@@ -38,13 +158,13 @@
     <loc>https://Kyle-Derrick.github.io/zh/tags/redis/</loc>
     <lastmod>2025-07-21T22:42:37+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open-source-component/redis/redis_concurrency_case/</loc>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_component/redis/redis_concurrency_case/</loc>
     <lastmod>2025-07-21T22:42:37+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open-source-component/redis/</loc>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_component/redis/</loc>
     <lastmod>2025-07-21T22:40:15+08:00</lastmod>
   </url><url>
-    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open-source-component/</loc>
+    <loc>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_component/</loc>
     <lastmod>2025-07-21T22:40:15+08:00</lastmod>
   </url><url>
     <loc>https://Kyle-Derrick.github.io/zh/tags/gradle/</loc>

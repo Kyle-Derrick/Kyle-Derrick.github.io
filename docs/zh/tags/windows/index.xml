@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Windows on Kyle&#39;s Notebook</title>
+    <link>https://Kyle-Derrick.github.io/zh/tags/windows/</link>
+    <description>Recent content in Windows on Kyle&#39;s Notebook</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 22 Jul 2025 23:04:29 +0800</lastBuildDate>
+    <atom:link href="https://Kyle-Derrick.github.io/zh/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>双系统时间问题</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/linux/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 22 Jul 2025 23:04:29 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/linux/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h2 id=&#34;ubuntu-win-双系统-时间&#34;&gt;Ubuntu win 双系统 时间&lt;/h2&gt;
+&lt;p&gt;要解决 Ubuntu 与 Windows 双系统时间不同步，可以按照以下步骤操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开终端，编辑 /etc/default/rcS 文件，将 “ UTC=yes ” 改成 “ UTC=no ”。&lt;/li&gt;
+&lt;li&gt;重启进入 Ubuntu 系统，设置好时间。&lt;/li&gt;
+&lt;li&gt;进入 Windows 系统即可解决时间问题1。或者，也可以在 Windows 系统中使用命令提示符输入 &lt;code&gt;Reg add HKLMSYSTEMCurrentControlSetControl[&amp;amp;Time&amp;amp;]ZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1&lt;/code&gt;，然后重启进入 Ubuntu 系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ubuntu24-解决办法&#34;&gt;Ubuntu24 解决办法&lt;/h3&gt;
+&lt;p&gt;由于ubuntu24弃用了hwclock，所以不能使用上述方法解决，需要使用如下解决：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

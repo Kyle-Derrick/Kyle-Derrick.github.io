@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>开源收藏夹 on Kyle&#39;s Notebook</title>
+    <link>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/</link>
+    <description>Recent content in 开源收藏夹 on Kyle&#39;s Notebook</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 22 Jul 2025 23:17:36 +0800</lastBuildDate>
+    <atom:link href="https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>互联Barrier安装记录</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/%E4%BA%92%E8%81%94barrier/</link>
+      <pubDate>Tue, 22 Jul 2025 23:17:36 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/%E4%BA%92%E8%81%94barrier/</guid>
+      <description>&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;h3 id=&#34;windows--macos&#34;&gt;Windows &amp;amp; MacOS&lt;/h3&gt;
+&lt;p&gt;直接去 Github 上下载&lt;a href=&#34;https://github.com/debauchee/barrier/releases&#34;&gt;安装包&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ubuntu&#34;&gt;Ubuntu&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install barrier
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
+&lt;h3 id=&#34;服务端设置&#34;&gt;服务端设置&lt;/h3&gt;
+&lt;h4 id=&#34;设置服务端&#34;&gt;“设置服务端”&lt;/h4&gt;
+&lt;p&gt;在里边新增屏幕，名字用客户端的设置名字（不能自己随便给，看客户端的设置里）&lt;/p&gt;
+&lt;h4 id=&#34;关闭ssl&#34;&gt;关闭SSL&lt;/h4&gt;
+&lt;h4 id=&#34;防火墙允许端口&#34;&gt;防火墙允许端口&lt;/h4&gt;
+&lt;h3 id=&#34;客户端设置&#34;&gt;客户端设置&lt;/h3&gt;
+&lt;h4 id=&#34;关闭ssl-1&#34;&gt;关闭ssl&lt;/h4&gt;
+&lt;h4 id=&#34;设置服务端ip&#34;&gt;设置服务端ip&lt;/h4&gt;
+&lt;h2 id=&#34;常见问题&#34;&gt;常见问题&lt;/h2&gt;
+&lt;h3 id=&#34;ubuntu-无法启动提示wayland问题&#34;&gt;Ubuntu 无法启动，提示Wayland问题&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;日志告警：WARNING: cursor may not be visible
+也用该方法解决&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>开源库搜寻记录</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/open_source_lib/</link>
+      <pubDate>Tue, 22 Jul 2025 23:11:48 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/open_source_favorites/open_source_lib/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;主要用于寻找第三方库后做备忘的零散记录，常用库此处不记录&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;rust&#34;&gt;Rust&lt;/h1&gt;
+&lt;p&gt;deno: 类似nodejs
+nom: 解析库（包括但不限于语法）
+egui、Tauri、Iced: GUI框架：https://rustcc.cn/article?id=8f6c816e-790e-44ff-8c80-1a0b8154fb7d&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

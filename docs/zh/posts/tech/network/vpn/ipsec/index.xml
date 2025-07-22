@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IPsec VPN相关 on Kyle&#39;s Notebook</title>
+    <link>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/</link>
+    <description>Recent content in IPsec VPN相关 on Kyle&#39;s Notebook</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 22 Jul 2025 22:29:33 +0800</lastBuildDate>
+    <atom:link href="https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StrongSwan安装部署（CentOS7 为例）</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/strongswan%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Tue, 22 Jul 2025 22:29:33 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/strongswan%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IPsec技术原理</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/ipsec%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Tue, 22 Jul 2025 22:14:22 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/network/vpn/ipsec/ipsec%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;什么是IPSec&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;IPSec（Internet Protocol Security）是IETF（Internet Engineering Task Force）制定的一组开放的&lt;a href=&#34;https://cloud.tencent.com/product/ns?from_column=20065&amp;amp;from=20065&#34;&gt;网络安全&lt;/a&gt;协议。它并不是一个单独的协议，而是一系列为IP网络提供安全性的协议和服务的集合。&lt;/p&gt;
+&lt;p&gt;IPSec用来解决IP层安全性问题的技术。IPSec被设计为同时支持IPv4和IPv6网络。主要通过加密与验证等方式，为IP数据包提供安全服务。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
