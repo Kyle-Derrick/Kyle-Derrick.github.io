@@ -1,0 +1,183 @@
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>WireGuard服务部署 | Kyle's Notebook</title><meta name=keywords content="Linux,WireGuard,VPN,Network"><meta name=description content="一、虚拟机A（Ubuntu 20）配置
+1. 安装WireGuard
+
+
+1
+2
+
+
+sudo apt update
+sudo apt install wireguard resolvconf  # 安装WireGuard和DNS工具（如需）
+
+
+2. 生成服务器密钥对
+
+
+1
+2
+3
+
+
+# 生成私钥和公钥
+sudo umask 077  # 确保密钥文件权限安全
+sudo wg genkey | sudo tee /etc/wireguard/server_private.key | wg pubkey | sudo tee /etc/wireguard/server_public.key
+
+
+3. 配置WireGuard服务端
+创建配置文件 /etc/wireguard/wg0.conf："><meta name=author content="kyle"><link rel=canonical href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/wireguard%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/><link crossorigin=anonymous href=/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as=style><link rel=icon href=https://Kyle-Derrick.github.io/img/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://Kyle-Derrick.github.io/img/favicon-16x16.ico><link rel=icon type=image/png sizes=32x32 href=https://Kyle-Derrick.github.io/img/favicon-32x32.ico><link rel=apple-touch-icon href=https://Kyle-Derrick.github.io/img/apple-touch-icon.png><link rel=mask-icon href=https://Kyle-Derrick.github.io/img/favicon.ico><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/wireguard%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://Kyle-Derrick.github.io/zh/posts/tech/linux/wireguard%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/"><meta property="og:site_name" content="Kyle's Notebook"><meta property="og:title" content="WireGuard服务部署"><meta property="og:description" content="一、虚拟机A（Ubuntu 20）配置 1. 安装WireGuard 1 2 sudo apt update sudo apt install wireguard resolvconf # 安装WireGuard和DNS工具（如需） 2. 生成服务器密钥对 1 2 3 # 生成私钥和公钥 sudo umask 077 # 确保密钥文件权限安全 sudo wg genkey | sudo tee /etc/wireguard/server_private.key | wg pubkey | sudo tee /etc/wireguard/server_public.key 3. 配置WireGuard服务端 创建配置文件 /etc/wireguard/wg0.conf："><meta property="og:locale" content="zh"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-07-22T22:58:51+08:00"><meta property="article:modified_time" content="2025-07-22T22:58:51+08:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="WireGuard"><meta property="article:tag" content="VPN"><meta property="article:tag" content="Network"><meta name=twitter:card content="summary"><meta name=twitter:title content="WireGuard服务部署"><meta name=twitter:description content="一、虚拟机A（Ubuntu 20）配置
+1. 安装WireGuard
+
+
+1
+2
+
+
+sudo apt update
+sudo apt install wireguard resolvconf  # 安装WireGuard和DNS工具（如需）
+
+
+2. 生成服务器密钥对
+
+
+1
+2
+3
+
+
+# 生成私钥和公钥
+sudo umask 077  # 确保密钥文件权限安全
+sudo wg genkey | sudo tee /etc/wireguard/server_private.key | wg pubkey | sudo tee /etc/wireguard/server_public.key
+
+
+3. 配置WireGuard服务端
+创建配置文件 /etc/wireguard/wg0.conf："><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://Kyle-Derrick.github.io/zh/posts/"},{"@type":"ListItem","position":2,"name":"技术类","item":"https://Kyle-Derrick.github.io/zh/posts/tech/"},{"@type":"ListItem","position":3,"name":"Linux相关","item":"https://Kyle-Derrick.github.io/zh/posts/tech/linux/"},{"@type":"ListItem","position":4,"name":"WireGuard服务部署","item":"https://Kyle-Derrick.github.io/zh/posts/tech/linux/wireguard%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"WireGuard服务部署","name":"WireGuard服务部署","description":"一、虚拟机A（Ubuntu 20）配置 1. 安装WireGuard 1 2 sudo apt update sudo apt install wireguard resolvconf # 安装WireGuard和DNS工具（如需） 2. 生成服务器密钥对 1 2 3 # 生成私钥和公钥 sudo umask 077 # 确保密钥文件权限安全 sudo wg genkey | sudo tee /etc/wireguard/server_private.key | wg pubkey | sudo tee /etc/wireguard/server_public.key 3. 配置WireGuard服务端 创建配置文件 /etc/wireguard/wg0.conf：\n","keywords":["Linux","WireGuard","VPN","Network"],"articleBody":"一、虚拟机A（Ubuntu 20）配置 1. 安装WireGuard 1 2 sudo apt update sudo apt install wireguard resolvconf # 安装WireGuard和DNS工具（如需） 2. 生成服务器密钥对 1 2 3 # 生成私钥和公钥 sudo umask 077 # 确保密钥文件权限安全 sudo wg genkey | sudo tee /etc/wireguard/server_private.key | wg pubkey | sudo tee /etc/wireguard/server_public.key 3. 配置WireGuard服务端 创建配置文件 /etc/wireguard/wg0.conf：\n1 sudo nano /etc/wireguard/wg0.conf 内容如下（根据需求修改）：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 [Interface] Address = 10.10.20.1/24 # 服务器虚拟IP（WireGuard内网段） SaveConfig = true ListenPort = 51820 # 监听端口（确保防火墙开放） PrivateKey = \u003c服务器私钥\u003e # 从 /etc/wireguard/server_private.key 复制 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE # 客户端配置（示例：允许两个客户端） [Peer] # 客户端1 PublicKey = \u003c客户端1公钥\u003e AllowedIPs = 10.10.20.2/32 # 分配给客户端的虚拟IP [Peer] # 客户端2 PublicKey = \u003c客户端2公钥\u003e AllowedIPs = 10.10.20.3/32 4. 启用IP转发和NAT 编辑 /etc/sysctl.conf：\n1 net.ipv4.ip_forward=1 加载配置：\n1 sudo sysctl -p 5. 启动WireGuard服务 1 2 sudo systemctl enable wg-quick@wg0 sudo systemctl start wg-quick@wg0 6. 开放防火墙端口 1 2 sudo ufw allow 51820/udp # 允许WireGuard端口 sudo ufw reload 二、客户端配置（以Windows和Android为例） 1. 生成客户端密钥对 在客户端机器上生成密钥（以客户端1为例）：\n1 2 3 4 # Linux/macOS/WSL： wg genkey | tee client1_private.key | wg pubkey \u003e client1_public.key # Windows（需安装WireGuard客户端后，在界面中生成密钥） 2. 客户端配置文件（示例：client1.conf） 1 2 3 4 5 6 7 8 9 10 [Interface] PrivateKey = \u003c客户端1私钥\u003e Address = 10.10.20.2/24 # 客户端虚拟IP（需与服务端AllowedIPs一致） DNS = 8.8.8.8 # 可选DNS [Peer] PublicKey = \u003c服务器公钥\u003e # 从 /etc/wireguard/server_public.key 复制 Endpoint = \u003c服务器公网IP\u003e:51820 # 虚拟机A的ens1网卡IP AllowedIPs = 0.0.0.0/0 # 将所有流量路由到VPN（或指定子网） PersistentKeepalive = 25 # 保持连接 3. 将客户端公钥添加到服务端 在虚拟机A上编辑 /etc/wireguard/wg0.conf，添加客户端的[Peer]段：\n1 2 3 [Peer] PublicKey = \u003c客户端1公钥\u003e AllowedIPs = 10.10.20.2/32 重启WireGuard服务：\n1 sudo systemctl restart wg-quick@wg0 4. 客户端连接 Windows：\n安装 WireGuard客户端。 导入 client1.conf 文件。 点击“激活”连接。 Android/iOS：\n安装 WireGuard 客户端。 扫描配置文件二维码（或手动导入）。 三、验证和排错 1. 检查服务端状态 1 sudo wg show # 查看连接的对等节点和流量统计 2. 测试连通性 客户端执行： 1 2 3 ping 10.10.20.1 # 测试VPN内网连通性 ping 8.8.8.8 # 测试外网（需服务端NAT配置正确） ping \u003c物理机IP\u003e # 测试访问物理机 3. 常见问题 无法连接：\n检查服务端防火墙是否开放UDP 51820。 确保客户端和服务端的公钥/私钥配对正确。 检查服务端NAT规则（iptables -t nat -L）。 无网络流量：\n确认服务端已启用IP转发（sysctl net.ipv4.ip_forward）。 检查客户端AllowedIPs是否为 0.0.0.0/0（全局流量）或指定子网。 四、扩展配置（可选） 1. 动态IP客户端 在服务端配置中，允许客户端IP动态分配：\n1 2 3 4 5 [Peer] PublicKey = \u003c客户端公钥\u003e AllowedIPs = 10.10.20.2/32 # 固定IP # 或 AllowedIPs = 10.10.20.0/24 # 允许客户端使用整个子网 2. 多子网路由 如果客户端需要访问其他子网（如虚拟机B的网段 192.168.100.0/24）：\n1 2 3 4 5 # 在服务端添加路由 sudo ip route add 192.168.100.0/24 dev wg0 # 在客户端配置中指定AllowedIPs： AllowedIPs = 0.0.0.0/0, 192.168.100.0/24 五、安全性建议 限制客户端IP范围：避免使用 AllowedIPs = 0.0.0.0/0，按需分配。 定期更换密钥：删除旧密钥并重新生成。 启用防火墙白名单：仅允许已知IP连接服务端。 通过以上步骤，WireGuard VPN服务将部署完成，客户端可通过虚拟机A访问物理机和其他网络资源。\n","wordCount":"1535","inLanguage":"zh","datePublished":"2025-07-22T22:58:51+08:00","dateModified":"2025-07-22T22:58:51+08:00","author":[{"@type":"Person","name":"kyle"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://Kyle-Derrick.github.io/zh/posts/tech/linux/wireguard%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/"},"publisher":{"@type":"Organization","name":"Kyle's Notebook","logo":{"@type":"ImageObject","url":"https://Kyle-Derrick.github.io/img/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://Kyle-Derrick.github.io/zh/ accesskey=h title="Kyle's Notebook (Alt + H)">Kyle's Notebook</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://Kyle-Derrick.github.io/zh/search title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/ title=主页><span>主页</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/posts title=文章><span>文章</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/archives title=时间轴><span>时间轴</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/tags title=标签><span>标签</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/about title=关于><span>关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://Kyle-Derrick.github.io/zh/>主页</a>&nbsp;»&nbsp;<a href=https://Kyle-Derrick.github.io/zh/posts/>文章</a>&nbsp;»&nbsp;<a href=https://Kyle-Derrick.github.io/zh/posts/tech/>技术类</a>&nbsp;»&nbsp;<a href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/>Linux相关</a></div><h1 class="post-title entry-hint-parent">WireGuard服务部署</h1><div class=post-meta><span title='2025-07-22 22:58:51 +0800 +0800'>2025-07-22</span>&nbsp;·&nbsp;4 分钟&nbsp;·&nbsp;kyle</div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#%e4%b8%80%e8%99%9a%e6%8b%9f%e6%9c%baaubuntu-20%e9%85%8d%e7%bd%ae aria-label="一、虚拟机A（Ubuntu 20）配置">一、虚拟机A（Ubuntu 20）配置</a><ul><li><a href=#1-%e5%ae%89%e8%a3%85wireguard aria-label="1. 安装WireGuard">1. 安装WireGuard</a></li><li><a href=#2-%e7%94%9f%e6%88%90%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%af%86%e9%92%a5%e5%af%b9 aria-label="2. 生成服务器密钥对">2. 生成服务器密钥对</a></li><li><a href=#3-%e9%85%8d%e7%bd%aewireguard%e6%9c%8d%e5%8a%a1%e7%ab%af aria-label="3. 配置WireGuard服务端">3. 配置WireGuard服务端</a></li><li><a href=#4-%e5%90%af%e7%94%a8ip%e8%bd%ac%e5%8f%91%e5%92%8cnat aria-label="4. 启用IP转发和NAT">4. 启用IP转发和NAT</a></li><li><a href=#5-%e5%90%af%e5%8a%a8wireguard%e6%9c%8d%e5%8a%a1 aria-label="5. 启动WireGuard服务">5. 启动WireGuard服务</a></li><li><a href=#6-%e5%bc%80%e6%94%be%e9%98%b2%e7%81%ab%e5%a2%99%e7%ab%af%e5%8f%a3 aria-label="6. 开放防火墙端口">6. 开放防火墙端口</a></li></ul></li><li><a href=#%e4%ba%8c%e5%ae%a2%e6%88%b7%e7%ab%af%e9%85%8d%e7%bd%ae%e4%bb%a5windows%e5%92%8candroid%e4%b8%ba%e4%be%8b aria-label=二、客户端配置（以Windows和Android为例）>二、客户端配置（以Windows和Android为例）</a><ul><li><a href=#1-%e7%94%9f%e6%88%90%e5%ae%a2%e6%88%b7%e7%ab%af%e5%af%86%e9%92%a5%e5%af%b9 aria-label="1. 生成客户端密钥对">1. 生成客户端密钥对</a></li><li><a href=#2-%e5%ae%a2%e6%88%b7%e7%ab%af%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e7%a4%ba%e4%be%8bclient1conf aria-label="2. 客户端配置文件（示例：client1.conf）">2. 客户端配置文件（示例：client1.conf）</a></li><li><a href=#3-%e5%b0%86%e5%ae%a2%e6%88%b7%e7%ab%af%e5%85%ac%e9%92%a5%e6%b7%bb%e5%8a%a0%e5%88%b0%e6%9c%8d%e5%8a%a1%e7%ab%af aria-label="3. 将客户端公钥添加到服务端">3. 将客户端公钥添加到服务端</a></li><li><a href=#4-%e5%ae%a2%e6%88%b7%e7%ab%af%e8%bf%9e%e6%8e%a5 aria-label="4. 客户端连接">4. 客户端连接</a></li></ul></li><li><a href=#%e4%b8%89%e9%aa%8c%e8%af%81%e5%92%8c%e6%8e%92%e9%94%99 aria-label=三、验证和排错>三、验证和排错</a><ul><li><a href=#1-%e6%a3%80%e6%9f%a5%e6%9c%8d%e5%8a%a1%e7%ab%af%e7%8a%b6%e6%80%81 aria-label="1. 检查服务端状态">1. 检查服务端状态</a></li><li><a href=#2-%e6%b5%8b%e8%af%95%e8%bf%9e%e9%80%9a%e6%80%a7 aria-label="2. 测试连通性">2. 测试连通性</a></li><li><a href=#3-%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98 aria-label="3. 常见问题">3. 常见问题</a></li></ul></li><li><a href=#%e5%9b%9b%e6%89%a9%e5%b1%95%e9%85%8d%e7%bd%ae%e5%8f%af%e9%80%89 aria-label=四、扩展配置（可选）>四、扩展配置（可选）</a><ul><li><a href=#1-%e5%8a%a8%e6%80%81ip%e5%ae%a2%e6%88%b7%e7%ab%af aria-label="1. 动态IP客户端">1. 动态IP客户端</a></li><li><a href=#2-%e5%a4%9a%e5%ad%90%e7%bd%91%e8%b7%af%e7%94%b1 aria-label="2. 多子网路由">2. 多子网路由</a></li></ul></li><li><a href=#%e4%ba%94%e5%ae%89%e5%85%a8%e6%80%a7%e5%bb%ba%e8%ae%ae aria-label=五、安全性建议>五、安全性建议</a></li></ul></div></details></div><div class=post-content><h3 id=一虚拟机aubuntu-20配置><strong>一、虚拟机A（Ubuntu 20）配置</strong><a hidden class=anchor aria-hidden=true href=#一虚拟机aubuntu-20配置>#</a></h3><h4 id=1-安装wireguard><strong>1. 安装WireGuard</strong><a hidden class=anchor aria-hidden=true href=#1-安装wireguard>#</a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt update
+</span></span><span class=line><span class=cl>sudo apt install wireguard resolvconf  <span class=c1># 安装WireGuard和DNS工具（如需）</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=2-生成服务器密钥对><strong>2. 生成服务器密钥对</strong><a hidden class=anchor aria-hidden=true href=#2-生成服务器密钥对>#</a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 生成私钥和公钥</span>
+</span></span><span class=line><span class=cl>sudo <span class=nb>umask</span> <span class=m>077</span>  <span class=c1># 确保密钥文件权限安全</span>
+</span></span><span class=line><span class=cl>sudo wg genkey <span class=p>|</span> sudo tee /etc/wireguard/server_private.key <span class=p>|</span> wg pubkey <span class=p>|</span> sudo tee /etc/wireguard/server_public.key
+</span></span></code></pre></td></tr></table></div></div><h4 id=3-配置wireguard服务端><strong>3. 配置WireGuard服务端</strong><a hidden class=anchor aria-hidden=true href=#3-配置wireguard服务端>#</a></h4><p>创建配置文件 <code>/etc/wireguard/wg0.conf</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo nano /etc/wireguard/wg0.conf
+</span></span></code></pre></td></tr></table></div></div><p>内容如下（根据需求修改）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[Interface]</span>
+</span></span><span class=line><span class=cl><span class=na>Address</span> <span class=o>=</span> <span class=s>10.10.20.1/24  # 服务器虚拟IP（WireGuard内网段）</span>
+</span></span><span class=line><span class=cl><span class=na>SaveConfig</span> <span class=o>=</span> <span class=s>true</span>
+</span></span><span class=line><span class=cl><span class=na>ListenPort</span> <span class=o>=</span> <span class=s>51820        # 监听端口（确保防火墙开放）</span>
+</span></span><span class=line><span class=cl><span class=na>PrivateKey</span> <span class=o>=</span> <span class=s>&lt;服务器私钥&gt;  # 从 /etc/wireguard/server_private.key 复制</span>
+</span></span><span class=line><span class=cl><span class=na>PostUp</span> <span class=o>=</span> <span class=s>iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span>
+</span></span><span class=line><span class=cl><span class=na>PostDown</span> <span class=o>=</span> <span class=s>iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 客户端配置（示例：允许两个客户端）</span>
+</span></span><span class=line><span class=cl><span class=k>[Peer]</span>
+</span></span><span class=line><span class=cl><span class=c1># 客户端1</span>
+</span></span><span class=line><span class=cl><span class=na>PublicKey</span> <span class=o>=</span> <span class=s>&lt;客户端1公钥&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>AllowedIPs</span> <span class=o>=</span> <span class=s>10.10.20.2/32  # 分配给客户端的虚拟IP</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[Peer]</span>
+</span></span><span class=line><span class=cl><span class=c1># 客户端2</span>
+</span></span><span class=line><span class=cl><span class=na>PublicKey</span> <span class=o>=</span> <span class=s>&lt;客户端2公钥&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>AllowedIPs</span> <span class=o>=</span> <span class=s>10.10.20.3/32</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=4-启用ip转发和nat><strong>4. 启用IP转发和NAT</strong><a hidden class=anchor aria-hidden=true href=#4-启用ip转发和nat>#</a></h4><p>编辑 <code>/etc/sysctl.conf</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=na>net.ipv4.ip_forward</span><span class=o>=</span><span class=s>1</span>
+</span></span></code></pre></td></tr></table></div></div><p>加载配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo sysctl -p
+</span></span></code></pre></td></tr></table></div></div><h4 id=5-启动wireguard服务><strong>5. 启动WireGuard服务</strong><a hidden class=anchor aria-hidden=true href=#5-启动wireguard服务>#</a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo systemctl <span class=nb>enable</span> wg-quick@wg0
+</span></span><span class=line><span class=cl>sudo systemctl start wg-quick@wg0
+</span></span></code></pre></td></tr></table></div></div><h4 id=6-开放防火墙端口><strong>6. 开放防火墙端口</strong><a hidden class=anchor aria-hidden=true href=#6-开放防火墙端口>#</a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo ufw allow 51820/udp  <span class=c1># 允许WireGuard端口</span>
+</span></span><span class=line><span class=cl>sudo ufw reload
+</span></span></code></pre></td></tr></table></div></div><hr><h3 id=二客户端配置以windows和android为例><strong>二、客户端配置（以Windows和Android为例）</strong><a hidden class=anchor aria-hidden=true href=#二客户端配置以windows和android为例>#</a></h3><h4 id=1-生成客户端密钥对><strong>1. 生成客户端密钥对</strong><a hidden class=anchor aria-hidden=true href=#1-生成客户端密钥对>#</a></h4><p>在客户端机器上生成密钥（以客户端1为例）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Linux/macOS/WSL：</span>
+</span></span><span class=line><span class=cl>wg genkey <span class=p>|</span> tee client1_private.key <span class=p>|</span> wg pubkey &gt; client1_public.key
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Windows（需安装WireGuard客户端后，在界面中生成密钥）</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=2-客户端配置文件示例client1conf><strong>2. 客户端配置文件（示例：client1.conf）</strong><a hidden class=anchor aria-hidden=true href=#2-客户端配置文件示例client1conf>#</a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[Interface]</span>
+</span></span><span class=line><span class=cl><span class=na>PrivateKey</span> <span class=o>=</span> <span class=s>&lt;客户端1私钥&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>Address</span> <span class=o>=</span> <span class=s>10.10.20.2/24  # 客户端虚拟IP（需与服务端AllowedIPs一致）</span>
+</span></span><span class=line><span class=cl><span class=na>DNS</span> <span class=o>=</span> <span class=s>8.8.8.8            # 可选DNS</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[Peer]</span>
+</span></span><span class=line><span class=cl><span class=na>PublicKey</span> <span class=o>=</span> <span class=s>&lt;服务器公钥&gt;  # 从 /etc/wireguard/server_public.key 复制</span>
+</span></span><span class=line><span class=cl><span class=na>Endpoint</span> <span class=o>=</span> <span class=s>&lt;服务器公网IP&gt;:51820  # 虚拟机A的ens1网卡IP</span>
+</span></span><span class=line><span class=cl><span class=na>AllowedIPs</span> <span class=o>=</span> <span class=s>0.0.0.0/0    # 将所有流量路由到VPN（或指定子网）</span>
+</span></span><span class=line><span class=cl><span class=na>PersistentKeepalive</span> <span class=o>=</span> <span class=s>25   # 保持连接</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=3-将客户端公钥添加到服务端><strong>3. 将客户端公钥添加到服务端</strong><a hidden class=anchor aria-hidden=true href=#3-将客户端公钥添加到服务端>#</a></h4><p>在虚拟机A上编辑 <code>/etc/wireguard/wg0.conf</code>，添加客户端的<code>[Peer]</code>段：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[Peer]</span>
+</span></span><span class=line><span class=cl><span class=na>PublicKey</span> <span class=o>=</span> <span class=s>&lt;客户端1公钥&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>AllowedIPs</span> <span class=o>=</span> <span class=s>10.10.20.2/32</span>
+</span></span></code></pre></td></tr></table></div></div><p>重启WireGuard服务：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo systemctl restart wg-quick@wg0
+</span></span></code></pre></td></tr></table></div></div><h4 id=4-客户端连接><strong>4. 客户端连接</strong><a hidden class=anchor aria-hidden=true href=#4-客户端连接>#</a></h4><ul><li><p><strong>Windows</strong>：</p><ol><li>安装 <a href=https://www.wireguard.com/install/>WireGuard客户端</a>。</li><li>导入 <code>client1.conf</code> 文件。</li><li>点击“激活”连接。</li></ol></li><li><p><strong>Android/iOS</strong>：</p><ol><li>安装 WireGuard 客户端。</li><li>扫描配置文件二维码（或手动导入）。</li></ol></li></ul><hr><h3 id=三验证和排错><strong>三、验证和排错</strong><a hidden class=anchor aria-hidden=true href=#三验证和排错>#</a></h3><h4 id=1-检查服务端状态><strong>1. 检查服务端状态</strong><a hidden class=anchor aria-hidden=true href=#1-检查服务端状态>#</a></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo wg show  <span class=c1># 查看连接的对等节点和流量统计</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=2-测试连通性><strong>2. 测试连通性</strong><a hidden class=anchor aria-hidden=true href=#2-测试连通性>#</a></h4><ul><li>客户端执行：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ping 10.10.20.1       <span class=c1># 测试VPN内网连通性</span>
+</span></span><span class=line><span class=cl>ping 8.8.8.8          <span class=c1># 测试外网（需服务端NAT配置正确）</span>
+</span></span><span class=line><span class=cl>ping &lt;物理机IP&gt;       <span class=c1># 测试访问物理机</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><h4 id=3-常见问题><strong>3. 常见问题</strong><a hidden class=anchor aria-hidden=true href=#3-常见问题>#</a></h4><ul><li><p><strong>无法连接</strong>：</p><ul><li>检查服务端防火墙是否开放UDP 51820。</li><li>确保客户端和服务端的公钥/私钥配对正确。</li><li>检查服务端NAT规则（<code>iptables -t nat -L</code>）。</li></ul></li><li><p><strong>无网络流量</strong>：</p><ul><li>确认服务端已启用IP转发（<code>sysctl net.ipv4.ip_forward</code>）。</li><li>检查客户端<code>AllowedIPs</code>是否为 <code>0.0.0.0/0</code>（全局流量）或指定子网。</li></ul></li></ul><hr><h3 id=四扩展配置可选><strong>四、扩展配置（可选）</strong><a hidden class=anchor aria-hidden=true href=#四扩展配置可选>#</a></h3><h4 id=1-动态ip客户端><strong>1. 动态IP客户端</strong><a hidden class=anchor aria-hidden=true href=#1-动态ip客户端>#</a></h4><p>在服务端配置中，允许客户端IP动态分配：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[Peer]</span>
+</span></span><span class=line><span class=cl><span class=na>PublicKey</span> <span class=o>=</span> <span class=s>&lt;客户端公钥&gt;</span>
+</span></span><span class=line><span class=cl><span class=na>AllowedIPs</span> <span class=o>=</span> <span class=s>10.10.20.2/32  # 固定IP</span>
+</span></span><span class=line><span class=cl><span class=c1># 或</span>
+</span></span><span class=line><span class=cl><span class=na>AllowedIPs</span> <span class=o>=</span> <span class=s>10.10.20.0/24  # 允许客户端使用整个子网</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=2-多子网路由><strong>2. 多子网路由</strong><a hidden class=anchor aria-hidden=true href=#2-多子网路由>#</a></h4><p>如果客户端需要访问其他子网（如虚拟机B的网段 <code>192.168.100.0/24</code>）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 在服务端添加路由</span>
+</span></span><span class=line><span class=cl>sudo ip route add 192.168.100.0/24 dev wg0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 在客户端配置中指定AllowedIPs：</span>
+</span></span><span class=line><span class=cl><span class=nv>AllowedIPs</span> <span class=o>=</span> 0.0.0.0/0, 192.168.100.0/24
+</span></span></code></pre></td></tr></table></div></div><hr><h3 id=五安全性建议><strong>五、安全性建议</strong><a hidden class=anchor aria-hidden=true href=#五安全性建议>#</a></h3><ul><li><strong>限制客户端IP范围</strong>：避免使用 <code>AllowedIPs = 0.0.0.0/0</code>，按需分配。</li><li><strong>定期更换密钥</strong>：删除旧密钥并重新生成。</li><li><strong>启用防火墙白名单</strong>：仅允许已知IP连接服务端。</li></ul><hr><p>通过以上步骤，WireGuard VPN服务将部署完成，客户端可通过虚拟机A访问物理机和其他网络资源。</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://Kyle-Derrick.github.io/zh/tags/linux/>Linux</a></li><li><a href=https://Kyle-Derrick.github.io/zh/tags/wireguard/>WireGuard</a></li><li><a href=https://Kyle-Derrick.github.io/zh/tags/vpn/>VPN</a></li><li><a href=https://Kyle-Derrick.github.io/zh/tags/network/>Network</a></li></ul><nav class=paginav><a class=prev href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/ipsec_ikev2%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/><span class=title>« 上一页</span><br><span>IPsec/IKEv2服务部署</span>
+</a><a class=next href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/smb%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/><span class=title>下一页 »</span><br><span>SMB服务部署</span></a></nav></footer><script src=https://giscus.app/client.js data-repo=Kyle-Derrick/Kyle-Derrick.github.io data-repo-id=R_kgDOOqQLVA data-category=Announcements data-category-id=DIC_kwDOOqQLVM4CtPKE data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN crossorigin=anonymous async></script></article></main><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

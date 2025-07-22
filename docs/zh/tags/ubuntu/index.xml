@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ubuntu on Kyle&#39;s Notebook</title>
+    <link>https://Kyle-Derrick.github.io/zh/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Kyle&#39;s Notebook</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 22 Jul 2025 23:05:18 +0800</lastBuildDate>
+    <atom:link href="https://Kyle-Derrick.github.io/zh/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu清华源配置</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/linux/ubuntu%E6%B8%85%E5%8D%8E%E6%BA%90/</link>
+      <pubDate>Tue, 22 Jul 2025 23:05:18 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/linux/ubuntu%E6%B8%85%E5%8D%8E%E6%BA%90/</guid>
+      <description>&lt;h2 id=&#34;修改说明地址&#34;&gt;修改说明地址&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/&#34;&gt;https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;mirror&#34;&gt;mirror&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/ubuntu&#34;&gt;https://mirrors.tuna.tsinghua.edu.cn/ubuntu&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

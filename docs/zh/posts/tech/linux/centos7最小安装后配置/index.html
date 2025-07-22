@@ -1,0 +1,495 @@
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>CentOS7最小安装后配置 | Kyle's Notebook</title><meta name=keywords content="Linux,CentOS"><meta name=description content='Linux笔记
+* centos被弃用后yum无法正常使用
+下载CentOS 7的repo文件
+
+
+1
+2
+3
+
+
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+# 或者
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+
+更新镜像源
+
+
+1
+2
+3
+4
+
+
+# 清除缓存：
+yum clean all
+# 生成缓存：
+yum makecache
+
+
+一： Linux基本配置
+1. 配置网卡，静态 IP
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+
+
+[root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-ens33
+    
+#修改
+BOOTPROTO=static
+ONBOOT=yes
+#增加
+IPADDR=192.168.197.129
+GATEWAY=192.168.197.2
+NETMASK=255.255.255.0
+DNS1=144.144.144.144
+DNS2=1.1.1.1
+    
+[root@localhost ~]# systemctl restart network.service
+
+
+2. 更新yum,安装系统工具net-tools,常用工具，依赖关系
+
+mini
+
+
+
+1
+
+
+yum -y install net-tools vim-enhanced zip unzip curl telnet wget
+
+
+
+个人常用
+
+
+
+1
+
+
+[root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget curl curl-devel openssl openssl-devel vim-enhanced zip unzip ntpdate patch expect rsync
+
+
+
+可选
+
+
+
+1
+2
+
+
+[root@localhost ~]# yum -y update
+[root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget lrzsz libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5-devel libidn libidn-devel openssl openssl-devel libxslt-devel libevent-devel libtool libtool-ltdl bison gd gd-devel vim-enhanced pcre-devel zip unzip ntpdate sysstat patch bc expect rsync
+
+
+3. 关闭SELINUX
+
+
+1
+2
+3
+4
+5
+
+
+[root@localhost ~]# vim /etc/sysconfig/selinux
+#SELINUX=enforcing
+SELINUX=disabled
+
+[root@localhost ~]# setenforce 0
+
+
+4. 设置时间时区
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+[root@localhost ~]# yum install ntp		#安装ntp服务的软件包
+[root@localhost ~]# systemctl enable ntpd		#将ntp服务设置为缺省启动
+[root@localhost ~]# vim /etc/sysconfig/ntpd		#修改启动参数，增加-g -x参数
+
+OPTIONS="-g -x"
+
+[root@localhost ~]# systemctl restart ntpd		#启动ntp服务
+[root@localhost ~]# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime		#将系统时区改为上海时间 (亦即CST时区)
+
+
+5. 关闭防火墙 (可选，要安全些的话还是老老实实的在需要的时候配防火墙吧)
+
+
+1
+2
+
+
+[root@localhost ~]# systemctl stop firewalld.service		# 关闭 “系统防火墙” 
+[root@localhost ~]# systemctl disable firewalld.service		# 关闭 “系统防火墙” 自启动
+
+
+6. 修改主机名
+
+
+1
+
+
+[root@localhost ~]# hostnamectl set-hostname master
+
+
+7. 配置ssh
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+[root@localhost ~]# vim /etc/ssh/ssh_config
+        StrictHostKeyChecking no		#免输入yes进行known_hosts添加
+        UserKnownHostsFile /dev/null		#可时时删除known_hosts文件免除known_hosts未更新导致的冲突
+           
+[root@localhost ~]# vim /etc/ssh/sshd_config
+		#解决ssh链接慢问题
+		UseDNS no		#UseDNS yes改为no, 如果没有或默认注释就添加UseDNS no
+		GSSAPIAuthentication no		#GSSAPIAuthentication yes改为no, 如果没有或默认注释就添加GSSAPIAuthentication no
+
+
+8.免密登录 (可选)
+
+
+1
+2
+
+
+ssh-keygen -t rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+
+'><meta name=author content="kyle"><link rel=canonical href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7%E6%9C%80%E5%B0%8F%E5%AE%89%E8%A3%85%E5%90%8E%E9%85%8D%E7%BD%AE/><link crossorigin=anonymous href=/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as=style><link rel=icon href=https://Kyle-Derrick.github.io/img/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://Kyle-Derrick.github.io/img/favicon-16x16.ico><link rel=icon type=image/png sizes=32x32 href=https://Kyle-Derrick.github.io/img/favicon-32x32.ico><link rel=apple-touch-icon href=https://Kyle-Derrick.github.io/img/apple-touch-icon.png><link rel=mask-icon href=https://Kyle-Derrick.github.io/img/favicon.ico><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7%E6%9C%80%E5%B0%8F%E5%AE%89%E8%A3%85%E5%90%8E%E9%85%8D%E7%BD%AE/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7%E6%9C%80%E5%B0%8F%E5%AE%89%E8%A3%85%E5%90%8E%E9%85%8D%E7%BD%AE/"><meta property="og:site_name" content="Kyle's Notebook"><meta property="og:title" content="CentOS7最小安装后配置"><meta property="og:description" content='Linux笔记 * centos被弃用后yum无法正常使用 下载CentOS 7的repo文件
+1 2 3 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo # 或者 curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 更新镜像源
+1 2 3 4 # 清除缓存： yum clean all # 生成缓存： yum makecache 一： Linux基本配置 1. 配置网卡，静态 IP 1 2 3 4 5 6 7 8 9 10 11 12 13 [root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-ens33 #修改 BOOTPROTO=static ONBOOT=yes #增加 IPADDR=192.168.197.129 GATEWAY=192.168.197.2 NETMASK=255.255.255.0 DNS1=144.144.144.144 DNS2=1.1.1.1 [root@localhost ~]# systemctl restart network.service 2. 更新yum,安装系统工具net-tools,常用工具，依赖关系 mini 1 yum -y install net-tools vim-enhanced zip unzip curl telnet wget 个人常用 1 [root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget curl curl-devel openssl openssl-devel vim-enhanced zip unzip ntpdate patch expect rsync 可选 1 2 [root@localhost ~]# yum -y update [root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget lrzsz libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5-devel libidn libidn-devel openssl openssl-devel libxslt-devel libevent-devel libtool libtool-ltdl bison gd gd-devel vim-enhanced pcre-devel zip unzip ntpdate sysstat patch bc expect rsync 3. 关闭SELINUX 1 2 3 4 5 [root@localhost ~]# vim /etc/sysconfig/selinux #SELINUX=enforcing SELINUX=disabled [root@localhost ~]# setenforce 0 4. 设置时间时区 1 2 3 4 5 6 7 8 [root@localhost ~]# yum install ntp	#安装ntp服务的软件包 [root@localhost ~]# systemctl enable ntpd	#将ntp服务设置为缺省启动 [root@localhost ~]# vim /etc/sysconfig/ntpd	#修改启动参数，增加-g -x参数 OPTIONS="-g -x" [root@localhost ~]# systemctl restart ntpd	#启动ntp服务 [root@localhost ~]# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime	#将系统时区改为上海时间 (亦即CST时区) 5. 关闭防火墙 (可选，要安全些的话还是老老实实的在需要的时候配防火墙吧) 1 2 [root@localhost ~]# systemctl stop firewalld.service	# 关闭 “系统防火墙” [root@localhost ~]# systemctl disable firewalld.service	# 关闭 “系统防火墙” 自启动 6. 修改主机名 1 [root@localhost ~]# hostnamectl set-hostname master 7. 配置ssh 1 2 3 4 5 6 7 8 [root@localhost ~]# vim /etc/ssh/ssh_config StrictHostKeyChecking no	#免输入yes进行known_hosts添加 UserKnownHostsFile /dev/null	#可时时删除known_hosts文件免除known_hosts未更新导致的冲突 [root@localhost ~]# vim /etc/ssh/sshd_config #解决ssh链接慢问题 UseDNS no	#UseDNS yes改为no, 如果没有或默认注释就添加UseDNS no GSSAPIAuthentication no	#GSSAPIAuthentication yes改为no, 如果没有或默认注释就添加GSSAPIAuthentication no 8.免密登录 (可选) 1 2 ssh-keygen -t rsa cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys '><meta property="og:locale" content="zh"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-07-22T22:48:13+08:00"><meta property="article:modified_time" content="2025-07-22T22:48:13+08:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="CentOS"><meta name=twitter:card content="summary"><meta name=twitter:title content="CentOS7最小安装后配置"><meta name=twitter:description content='Linux笔记
+* centos被弃用后yum无法正常使用
+下载CentOS 7的repo文件
+
+
+1
+2
+3
+
+
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+# 或者
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+
+更新镜像源
+
+
+1
+2
+3
+4
+
+
+# 清除缓存：
+yum clean all
+# 生成缓存：
+yum makecache
+
+
+一： Linux基本配置
+1. 配置网卡，静态 IP
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+
+
+[root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-ens33
+    
+#修改
+BOOTPROTO=static
+ONBOOT=yes
+#增加
+IPADDR=192.168.197.129
+GATEWAY=192.168.197.2
+NETMASK=255.255.255.0
+DNS1=144.144.144.144
+DNS2=1.1.1.1
+    
+[root@localhost ~]# systemctl restart network.service
+
+
+2. 更新yum,安装系统工具net-tools,常用工具，依赖关系
+
+mini
+
+
+
+1
+
+
+yum -y install net-tools vim-enhanced zip unzip curl telnet wget
+
+
+
+个人常用
+
+
+
+1
+
+
+[root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget curl curl-devel openssl openssl-devel vim-enhanced zip unzip ntpdate patch expect rsync
+
+
+
+可选
+
+
+
+1
+2
+
+
+[root@localhost ~]# yum -y update
+[root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget lrzsz libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5-devel libidn libidn-devel openssl openssl-devel libxslt-devel libevent-devel libtool libtool-ltdl bison gd gd-devel vim-enhanced pcre-devel zip unzip ntpdate sysstat patch bc expect rsync
+
+
+3. 关闭SELINUX
+
+
+1
+2
+3
+4
+5
+
+
+[root@localhost ~]# vim /etc/sysconfig/selinux
+#SELINUX=enforcing
+SELINUX=disabled
+
+[root@localhost ~]# setenforce 0
+
+
+4. 设置时间时区
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+[root@localhost ~]# yum install ntp		#安装ntp服务的软件包
+[root@localhost ~]# systemctl enable ntpd		#将ntp服务设置为缺省启动
+[root@localhost ~]# vim /etc/sysconfig/ntpd		#修改启动参数，增加-g -x参数
+
+OPTIONS="-g -x"
+
+[root@localhost ~]# systemctl restart ntpd		#启动ntp服务
+[root@localhost ~]# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime		#将系统时区改为上海时间 (亦即CST时区)
+
+
+5. 关闭防火墙 (可选，要安全些的话还是老老实实的在需要的时候配防火墙吧)
+
+
+1
+2
+
+
+[root@localhost ~]# systemctl stop firewalld.service		# 关闭 “系统防火墙” 
+[root@localhost ~]# systemctl disable firewalld.service		# 关闭 “系统防火墙” 自启动
+
+
+6. 修改主机名
+
+
+1
+
+
+[root@localhost ~]# hostnamectl set-hostname master
+
+
+7. 配置ssh
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+[root@localhost ~]# vim /etc/ssh/ssh_config
+        StrictHostKeyChecking no		#免输入yes进行known_hosts添加
+        UserKnownHostsFile /dev/null		#可时时删除known_hosts文件免除known_hosts未更新导致的冲突
+           
+[root@localhost ~]# vim /etc/ssh/sshd_config
+		#解决ssh链接慢问题
+		UseDNS no		#UseDNS yes改为no, 如果没有或默认注释就添加UseDNS no
+		GSSAPIAuthentication no		#GSSAPIAuthentication yes改为no, 如果没有或默认注释就添加GSSAPIAuthentication no
+
+
+8.免密登录 (可选)
+
+
+1
+2
+
+
+ssh-keygen -t rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+
+'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://Kyle-Derrick.github.io/zh/posts/"},{"@type":"ListItem","position":2,"name":"技术类","item":"https://Kyle-Derrick.github.io/zh/posts/tech/"},{"@type":"ListItem","position":3,"name":"Linux相关","item":"https://Kyle-Derrick.github.io/zh/posts/tech/linux/"},{"@type":"ListItem","position":4,"name":"CentOS7最小安装后配置","item":"https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7%E6%9C%80%E5%B0%8F%E5%AE%89%E8%A3%85%E5%90%8E%E9%85%8D%E7%BD%AE/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"CentOS7最小安装后配置","name":"CentOS7最小安装后配置","description":"Linux笔记 * centos被弃用后yum无法正常使用 下载CentOS 7的repo文件\n1 2 3 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo # 或者 curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 更新镜像源\n1 2 3 4 # 清除缓存： yum clean all # 生成缓存： yum makecache 一： Linux基本配置 1. 配置网卡，静态 IP 1 2 3 4 5 6 7 8 9 10 11 12 13 [root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-ens33 #修改 BOOTPROTO=static ONBOOT=yes #增加 IPADDR=192.168.197.129 GATEWAY=192.168.197.2 NETMASK=255.255.255.0 DNS1=144.144.144.144 DNS2=1.1.1.1 [root@localhost ~]# systemctl restart network.service 2. 更新yum,安装系统工具net-tools,常用工具，依赖关系 mini 1 yum -y install net-tools vim-enhanced zip unzip curl telnet wget 个人常用 1 [root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget curl curl-devel openssl openssl-devel vim-enhanced zip unzip ntpdate patch expect rsync 可选 1 2 [root@localhost ~]# yum -y update [root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget lrzsz libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5-devel libidn libidn-devel openssl openssl-devel libxslt-devel libevent-devel libtool libtool-ltdl bison gd gd-devel vim-enhanced pcre-devel zip unzip ntpdate sysstat patch bc expect rsync 3. 关闭SELINUX 1 2 3 4 5 [root@localhost ~]# vim /etc/sysconfig/selinux #SELINUX=enforcing SELINUX=disabled [root@localhost ~]# setenforce 0 4. 设置时间时区 1 2 3 4 5 6 7 8 [root@localhost ~]# yum install ntp\t#安装ntp服务的软件包 [root@localhost ~]# systemctl enable ntpd\t#将ntp服务设置为缺省启动 [root@localhost ~]# vim /etc/sysconfig/ntpd\t#修改启动参数，增加-g -x参数 OPTIONS=\u0026#34;-g -x\u0026#34; [root@localhost ~]# systemctl restart ntpd\t#启动ntp服务 [root@localhost ~]# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime\t#将系统时区改为上海时间 (亦即CST时区) 5. 关闭防火墙 (可选，要安全些的话还是老老实实的在需要的时候配防火墙吧) 1 2 [root@localhost ~]# systemctl stop firewalld.service\t# 关闭 “系统防火墙” [root@localhost ~]# systemctl disable firewalld.service\t# 关闭 “系统防火墙” 自启动 6. 修改主机名 1 [root@localhost ~]# hostnamectl set-hostname master 7. 配置ssh 1 2 3 4 5 6 7 8 [root@localhost ~]# vim /etc/ssh/ssh_config StrictHostKeyChecking no\t#免输入yes进行known_hosts添加 UserKnownHostsFile /dev/null\t#可时时删除known_hosts文件免除known_hosts未更新导致的冲突 [root@localhost ~]# vim /etc/ssh/sshd_config #解决ssh链接慢问题 UseDNS no\t#UseDNS yes改为no, 如果没有或默认注释就添加UseDNS no GSSAPIAuthentication no\t#GSSAPIAuthentication yes改为no, 如果没有或默认注释就添加GSSAPIAuthentication no 8.免密登录 (可选) 1 2 ssh-keygen -t rsa cat ~/.ssh/id_rsa.pub \u0026gt;\u0026gt; ~/.ssh/authorized_keys ","keywords":["Linux","CentOS"],"articleBody":"Linux笔记 * centos被弃用后yum无法正常使用 下载CentOS 7的repo文件\n1 2 3 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo # 或者 curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 更新镜像源\n1 2 3 4 # 清除缓存： yum clean all # 生成缓存： yum makecache 一： Linux基本配置 1. 配置网卡，静态 IP 1 2 3 4 5 6 7 8 9 10 11 12 13 [root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-ens33 #修改 BOOTPROTO=static ONBOOT=yes #增加 IPADDR=192.168.197.129 GATEWAY=192.168.197.2 NETMASK=255.255.255.0 DNS1=144.144.144.144 DNS2=1.1.1.1 [root@localhost ~]# systemctl restart network.service 2. 更新yum,安装系统工具net-tools,常用工具，依赖关系 mini 1 yum -y install net-tools vim-enhanced zip unzip curl telnet wget 个人常用 1 [root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget curl curl-devel openssl openssl-devel vim-enhanced zip unzip ntpdate patch expect rsync 可选 1 2 [root@localhost ~]# yum -y update [root@localhost ~]# yum -y install net-tools telnet gcc gcc-c++ make autoconf wget lrzsz libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5-devel libidn libidn-devel openssl openssl-devel libxslt-devel libevent-devel libtool libtool-ltdl bison gd gd-devel vim-enhanced pcre-devel zip unzip ntpdate sysstat patch bc expect rsync 3. 关闭SELINUX 1 2 3 4 5 [root@localhost ~]# vim /etc/sysconfig/selinux #SELINUX=enforcing SELINUX=disabled [root@localhost ~]# setenforce 0 4. 设置时间时区 1 2 3 4 5 6 7 8 [root@localhost ~]# yum install ntp\t#安装ntp服务的软件包 [root@localhost ~]# systemctl enable ntpd\t#将ntp服务设置为缺省启动 [root@localhost ~]# vim /etc/sysconfig/ntpd\t#修改启动参数，增加-g -x参数 OPTIONS=\"-g -x\" [root@localhost ~]# systemctl restart ntpd\t#启动ntp服务 [root@localhost ~]# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime\t#将系统时区改为上海时间 (亦即CST时区) 5. 关闭防火墙 (可选，要安全些的话还是老老实实的在需要的时候配防火墙吧) 1 2 [root@localhost ~]# systemctl stop firewalld.service\t# 关闭 “系统防火墙” [root@localhost ~]# systemctl disable firewalld.service\t# 关闭 “系统防火墙” 自启动 6. 修改主机名 1 [root@localhost ~]# hostnamectl set-hostname master 7. 配置ssh 1 2 3 4 5 6 7 8 [root@localhost ~]# vim /etc/ssh/ssh_config StrictHostKeyChecking no\t#免输入yes进行known_hosts添加 UserKnownHostsFile /dev/null\t#可时时删除known_hosts文件免除known_hosts未更新导致的冲突 [root@localhost ~]# vim /etc/ssh/sshd_config #解决ssh链接慢问题 UseDNS no\t#UseDNS yes改为no, 如果没有或默认注释就添加UseDNS no GSSAPIAuthentication no\t#GSSAPIAuthentication yes改为no, 如果没有或默认注释就添加GSSAPIAuthentication no 8.免密登录 (可选) 1 2 ssh-keygen -t rsa cat ~/.ssh/id_rsa.pub \u003e\u003e ~/.ssh/authorized_keys ","wordCount":"688","inLanguage":"zh","datePublished":"2025-07-22T22:48:13+08:00","dateModified":"2025-07-22T22:48:13+08:00","author":[{"@type":"Person","name":"kyle"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7%E6%9C%80%E5%B0%8F%E5%AE%89%E8%A3%85%E5%90%8E%E9%85%8D%E7%BD%AE/"},"publisher":{"@type":"Organization","name":"Kyle's Notebook","logo":{"@type":"ImageObject","url":"https://Kyle-Derrick.github.io/img/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://Kyle-Derrick.github.io/zh/ accesskey=h title="Kyle's Notebook (Alt + H)">Kyle's Notebook</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://Kyle-Derrick.github.io/zh/search title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/ title=主页><span>主页</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/posts title=文章><span>文章</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/archives title=时间轴><span>时间轴</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/tags title=标签><span>标签</span></a></li><li><a href=https://Kyle-Derrick.github.io/zh/about title=关于><span>关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://Kyle-Derrick.github.io/zh/>主页</a>&nbsp;»&nbsp;<a href=https://Kyle-Derrick.github.io/zh/posts/>文章</a>&nbsp;»&nbsp;<a href=https://Kyle-Derrick.github.io/zh/posts/tech/>技术类</a>&nbsp;»&nbsp;<a href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/>Linux相关</a></div><h1 class="post-title entry-hint-parent">CentOS7最小安装后配置</h1><div class=post-meta><span title='2025-07-22 22:48:13 +0800 +0800'>2025-07-22</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;kyle</div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>目录</span></summary><div class=inner><ul><li><a href=#linux%e7%ac%94%e8%ae%b0 aria-label=Linux笔记>Linux笔记</a><ul><li><a href=#-centos%e8%a2%ab%e5%bc%83%e7%94%a8%e5%90%8eyum%e6%97%a0%e6%b3%95%e6%ad%a3%e5%b8%b8%e4%bd%bf%e7%94%a8 aria-label="* centos被弃用后yum无法正常使用">* centos被弃用后yum无法正常使用</a></li><li><a href=#%e4%b8%80-linux%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae aria-label="一： Linux基本配置">一： Linux基本配置</a><ul><li><a href=#1-%e9%85%8d%e7%bd%ae%e7%bd%91%e5%8d%a1%e9%9d%99%e6%80%81-ip aria-label="1. 配置网卡，静态 IP">1. 配置网卡，静态 IP</a></li><li><a href=#2-%e6%9b%b4%e6%96%b0yum%e5%ae%89%e8%a3%85%e7%b3%bb%e7%bb%9f%e5%b7%a5%e5%85%b7net-tools%e5%b8%b8%e7%94%a8%e5%b7%a5%e5%85%b7%e4%be%9d%e8%b5%96%e5%85%b3%e7%b3%bb aria-label="2. 更新yum,安装系统工具net-tools,常用工具，依赖关系">2. 更新yum,安装系统工具net-tools,常用工具，依赖关系</a></li><li><a href=#3-%e5%85%b3%e9%97%adselinux aria-label="3. 关闭SELINUX">3. 关闭SELINUX</a></li><li><a href=#4-%e8%ae%be%e7%bd%ae%e6%97%b6%e9%97%b4%e6%97%b6%e5%8c%ba aria-label="4. 设置时间时区">4. 设置时间时区</a></li><li><a href=#5-%e5%85%b3%e9%97%ad%e9%98%b2%e7%81%ab%e5%a2%99-%e5%8f%af%e9%80%89%e8%a6%81%e5%ae%89%e5%85%a8%e4%ba%9b%e7%9a%84%e8%af%9d%e8%bf%98%e6%98%af%e8%80%81%e8%80%81%e5%ae%9e%e5%ae%9e%e7%9a%84%e5%9c%a8%e9%9c%80%e8%a6%81%e7%9a%84%e6%97%b6%e5%80%99%e9%85%8d%e9%98%b2%e7%81%ab%e5%a2%99%e5%90%a7 aria-label="5. 关闭防火墙 (可选，要安全些的话还是老老实实的在需要的时候配防火墙吧)">5. 关闭防火墙 (可选，要安全些的话还是老老实实的在需要的时候配防火墙吧)</a></li><li><a href=#6-%e4%bf%ae%e6%94%b9%e4%b8%bb%e6%9c%ba%e5%90%8d aria-label="6. 修改主机名">6. 修改主机名</a></li><li><a href=#7-%e9%85%8d%e7%bd%aessh aria-label="7. 配置ssh">7. 配置ssh</a></li><li><a href=#8%e5%85%8d%e5%af%86%e7%99%bb%e5%bd%95-%e5%8f%af%e9%80%89 aria-label="8.免密登录 (可选)">8.免密登录 (可选)</a></li></ul></li></ul></li></ul></div></details></div><div class=post-content><h1 id=linux笔记>Linux笔记<a hidden class=anchor aria-hidden=true href=#linux笔记>#</a></h1><h2 id=-centos被弃用后yum无法正常使用>* centos被弃用后yum无法正常使用<a hidden class=anchor aria-hidden=true href=#-centos被弃用后yum无法正常使用>#</a></h2><p>下载CentOS 7的repo文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+</span></span><span class=line><span class=cl><span class=c1># 或者</span>
+</span></span><span class=line><span class=cl>curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+</span></span></code></pre></td></tr></table></div></div><p>更新镜像源</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 清除缓存：</span>
+</span></span><span class=line><span class=cl>yum clean all
+</span></span><span class=line><span class=cl><span class=c1># 生成缓存：</span>
+</span></span><span class=line><span class=cl>yum makecache
+</span></span></code></pre></td></tr></table></div></div><h2 id=一-linux基本配置>一： Linux基本配置<a hidden class=anchor aria-hidden=true href=#一-linux基本配置>#</a></h2><h3 id=1-配置网卡静态-ip>1. 配置网卡，静态 IP<a hidden class=anchor aria-hidden=true href=#1-配置网卡静态-ip>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># vi /etc/sysconfig/network-scripts/ifcfg-ens33</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl><span class=c1>#修改</span>
+</span></span><span class=line><span class=cl><span class=nv>BOOTPROTO</span><span class=o>=</span>static
+</span></span><span class=line><span class=cl><span class=nv>ONBOOT</span><span class=o>=</span>yes
+</span></span><span class=line><span class=cl><span class=c1>#增加</span>
+</span></span><span class=line><span class=cl><span class=nv>IPADDR</span><span class=o>=</span>192.168.197.129
+</span></span><span class=line><span class=cl><span class=nv>GATEWAY</span><span class=o>=</span>192.168.197.2
+</span></span><span class=line><span class=cl><span class=nv>NETMASK</span><span class=o>=</span>255.255.255.0
+</span></span><span class=line><span class=cl><span class=nv>DNS1</span><span class=o>=</span>144.144.144.144
+</span></span><span class=line><span class=cl><span class=nv>DNS2</span><span class=o>=</span>1.1.1.1
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># systemctl restart network.service</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=2-更新yum安装系统工具net-tools常用工具依赖关系>2. 更新yum,安装系统工具net-tools,常用工具，依赖关系<a hidden class=anchor aria-hidden=true href=#2-更新yum安装系统工具net-tools常用工具依赖关系>#</a></h3><ul><li>mini</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>yum -y install net-tools vim-enhanced zip unzip curl telnet wget
+</span></span></code></pre></td></tr></table></div></div><ul><li>个人常用</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># yum -y install net-tools telnet gcc gcc-c++ make autoconf wget curl curl-devel openssl openssl-devel vim-enhanced zip unzip ntpdate patch expect rsync</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>可选</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># yum -y update</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># yum -y install net-tools telnet gcc gcc-c++ make autoconf wget lrzsz libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5-devel libidn libidn-devel openssl openssl-devel libxslt-devel libevent-devel libtool libtool-ltdl bison gd gd-devel vim-enhanced pcre-devel zip unzip ntpdate sysstat patch bc expect rsync</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=3-关闭selinux>3. 关闭SELINUX<a hidden class=anchor aria-hidden=true href=#3-关闭selinux>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># vim /etc/sysconfig/selinux</span>
+</span></span><span class=line><span class=cl><span class=c1>#SELINUX=enforcing</span>
+</span></span><span class=line><span class=cl><span class=nv>SELINUX</span><span class=o>=</span>disabled
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># setenforce 0</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=4-设置时间时区>4. 设置时间时区<a hidden class=anchor aria-hidden=true href=#4-设置时间时区>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># yum install ntp		#安装ntp服务的软件包</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># systemctl enable ntpd		#将ntp服务设置为缺省启动</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># vim /etc/sysconfig/ntpd		#修改启动参数，增加-g -x参数</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>OPTIONS</span><span class=o>=</span><span class=s2>&#34;-g -x&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># systemctl restart ntpd		#启动ntp服务</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime		#将系统时区改为上海时间 (亦即CST时区)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=5-关闭防火墙-可选要安全些的话还是老老实实的在需要的时候配防火墙吧>5. 关闭防火墙 (可选，要安全些的话还是老老实实的在需要的时候配防火墙吧)<a hidden class=anchor aria-hidden=true href=#5-关闭防火墙-可选要安全些的话还是老老实实的在需要的时候配防火墙吧>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># systemctl stop firewalld.service		# 关闭 “系统防火墙” </span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># systemctl disable firewalld.service		# 关闭 “系统防火墙” 自启动</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=6-修改主机名>6. 修改主机名<a hidden class=anchor aria-hidden=true href=#6-修改主机名>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># hostnamectl set-hostname master</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=7-配置ssh>7. 配置ssh<a hidden class=anchor aria-hidden=true href=#7-配置ssh>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># vim /etc/ssh/ssh_config</span>
+</span></span><span class=line><span class=cl>        StrictHostKeyChecking no		<span class=c1>#免输入yes进行known_hosts添加</span>
+</span></span><span class=line><span class=cl>        UserKnownHostsFile /dev/null		<span class=c1>#可时时删除known_hosts文件免除known_hosts未更新导致的冲突</span>
+</span></span><span class=line><span class=cl>           
+</span></span><span class=line><span class=cl><span class=o>[</span>root@localhost ~<span class=o>]</span><span class=c1># vim /etc/ssh/sshd_config</span>
+</span></span><span class=line><span class=cl>		<span class=c1>#解决ssh链接慢问题</span>
+</span></span><span class=line><span class=cl>		UseDNS no		<span class=c1>#UseDNS yes改为no, 如果没有或默认注释就添加UseDNS no</span>
+</span></span><span class=line><span class=cl>		GSSAPIAuthentication no		<span class=c1>#GSSAPIAuthentication yes改为no, 如果没有或默认注释就添加GSSAPIAuthentication no</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=8免密登录-可选>8.免密登录 (可选)<a hidden class=anchor aria-hidden=true href=#8免密登录-可选>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>ssh-keygen -t rsa
+</span></span><span class=line><span class=cl>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</span></span></code></pre></td></tr></table></div></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://Kyle-Derrick.github.io/zh/tags/linux/>Linux</a></li><li><a href=https://Kyle-Derrick.github.io/zh/tags/centos/>CentOS</a></li></ul><nav class=paginav><a class=prev href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/smb%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/><span class=title>« 上一页</span><br><span>SMB服务部署</span>
+</a><a class=next href=https://Kyle-Derrick.github.io/zh/posts/tech/linux/centos7%E4%BD%BF%E7%94%A8%E9%AB%98%E7%89%88%E6%9C%ACgcc/><span class=title>下一页 »</span><br><span>CentOS7 使用高版本gcc</span></a></nav></footer><script src=https://giscus.app/client.js data-repo=Kyle-Derrick/Kyle-Derrick.github.io data-repo-id=R_kgDOOqQLVA data-category=Announcements data-category-id=DIC_kwDOOqQLVM4CtPKE data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN crossorigin=anonymous async></script></article></main><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
