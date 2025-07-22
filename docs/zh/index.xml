@@ -6,8 +6,15 @@
     <description>Recent content on Kyle&#39;s Notebook</description>
     <generator>Hugo -- 0.148.1</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 21 Jul 2025 22:53:34 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jul 2025 14:38:34 +0800</lastBuildDate>
     <atom:link href="https://Kyle-Derrick.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>源码研究计划（源于AI推荐）</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/plan/%E6%BA%90%E7%A0%81%E7%A0%94%E7%A9%B6%E8%AE%A1%E5%88%92/</link>
+      <pubDate>Tue, 22 Jul 2025 14:38:34 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/plan/%E6%BA%90%E7%A0%81%E7%A0%94%E7%A9%B6%E8%AE%A1%E5%88%92/</guid>
+      <description>&lt;p&gt;以下是为您制定的完整系统能力提升方案，整合了源码精读、实践策略和工具链支持，特别针对Rust/Golang存储与高性能系统领域，分为三个阶段实施（附时间规划与难度标签）：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Rust国内源安装</title>
       <link>https://Kyle-Derrick.github.io/zh/posts/tech/rust/%E5%9B%BD%E5%86%85%E6%BA%90%E5%AE%89%E8%A3%85/</link>
