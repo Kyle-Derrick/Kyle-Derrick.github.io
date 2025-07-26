@@ -99,6 +99,7 @@ params:
     hideFooter: true # 隐藏页脚
     ShowWordCounts: true
     VisitCount: true
+    # UseHugoToc: true # 使用 Hugo 内置的目录功能
 
     ShowLastMod: true #显示文章更新时间
 

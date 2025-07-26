@@ -1,0 +1,45 @@
+.toc {
+    margin: 0;
+    border: 1px solid var(--border);
+    background: var(--code-bg);
+    border-radius: var(--radius);
+    padding: .4em;
+
+    overflow-y: auto;
+    max-height: 80vh;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    position: fixed;
+    top: calc(10vh);
+    right: 0;
+    width: calc((100% - (var(--main-width) + var(--gap) * 2)) / 2);
+    max-width: 360px;
+    min-width: 280px;
+    z-index: 98;
+    transition: visibility .5s, opacity .8s linear;
+}
+
+@media (max-width: 1280px) {
+    .toc {
+        margin: 0 2px 40px 2px;
+        border: 1px solid var(--border);
+        background: var(--code-bg);
+        border-radius: var(--radius);
+        padding: 0.4em;
+
+    
+        overflow-y: auto;
+        max-height: auto;
+        box-shadow: none;
+
+        display: block;
+        position: static;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+        z-index: auto;
+        transition: visibility .5s, opacity .8s linear;
+    }
+}
