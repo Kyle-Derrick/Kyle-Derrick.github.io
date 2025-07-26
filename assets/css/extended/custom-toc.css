@@ -2,24 +2,65 @@
     margin: 0;
     border: 1px solid var(--border);
     background: var(--code-bg);
-    border-radius: var(--radius);
-    padding: .4em;
-
+    border-radius: var(--radius) 0 0 var(--radius);
+    padding: 5px;
     overflow-y: auto;
     max-height: 80vh;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+
+    font-size: 18px;
 
     position: fixed;
     top: calc(10vh);
     right: 0;
+    height: auto;
     width: calc((100% - (var(--main-width) + var(--gap) * 2)) / 2);
     max-width: 360px;
     min-width: 280px;
     z-index: 98;
-    transition: visibility .5s, opacity .8s linear;
 }
 
-@media (max-width: 1280px) {
+.toc, .toc-closed {
+    transition: width 0.3s, min-width 0.3s, height 0.3s, visibility .5s, opacity .8s linear;
+}
+
+/* .toc details .inner {
+    width: calc((100% - (var(--main-width) + var(--gap) * 2)) / 2 - 5px);
+    max-width: calc(360px - 5px);
+    min-width: calc(280px - 5px);
+} */
+
+.toc-closed {
+    writing-mode: vertical-lr;
+    text-align: center;
+    width: 34px;
+    height: 81px;
+    min-width: 42px;
+    font-size: 16px;
+    z-index: 99;
+
+    padding: 10px 5px;
+}
+
+.toc-closed summary {
+  /* list-style: none; */
+  margin-inline-start: 0px !important;
+}
+/* 兼容WebKit内核浏览器（Chrome/Safari） */
+/* .toc-closed summary::-webkit-details-marker {
+    display: none; 
+} */
+/* 标准写法（Firefox/Edge） */
+/* .toc-closed summary::marker {
+  display: none;
+} */
+
+@media (max-width: 1279px) {
+    .toc-closed {
+        writing-mode: horizontal-tb;
+        text-align: start;
+    }
+
     .toc {
         margin: 0 2px 40px 2px;
         border: 1px solid var(--border);
@@ -27,6 +68,7 @@
         border-radius: var(--radius);
         padding: 0.4em;
 
+        font-size: 18px;
     
         overflow-y: auto;
         max-height: auto;
@@ -39,7 +81,8 @@
         width: 100%;
         max-width: 100%;
         min-width: auto;
+        height: auto;
         z-index: auto;
-        transition: visibility .5s, opacity .8s linear;
+        transition: width 0.3s, height 0.3s, visibility .5s, opacity .8s linear;
     }
 }
