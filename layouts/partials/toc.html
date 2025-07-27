@@ -97,12 +97,47 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.toc a'); // 目录项链接
+  const headings = Array.from(tocLinks).map(link => {
+    const id = link.getAttribute('href').substring(1);
+    return document.getElementById(decodeURI(id)); // 获取对应标题元素
+  });
+
+  let activeHeading = [];
+  function scrollToActiveHeading() {
+    if (window.innerWidth < 1280) {
+        if (activeHeading.length > 0) {
+          activeHeading.forEach(link => link.classList.remove('toc-active'));
+          activeHeading = []; // 清空活动标题记录
+        }
+      return;
+    }
+    /*  const scrollPosition = window.scrollY + 100; // 偏移量避免被导航栏遮挡  */
+    const scrollPosition = window.scrollY;
+    headings.forEach((heading, index) => {
+      if (!heading) return;
+      const headingTop = heading.offsetTop;
+      const headingHeight = heading.offsetHeight;
+      const nextHeading = headings[index + 1];
+      const nextTop = nextHeading ? nextHeading.offsetTop : Infinity;
+
+      // 判断当前标题是否在可视区域内
+      if (scrollPosition >= headingTop && scrollPosition < nextTop) {
+          activeHeading.forEach(link => link.classList.remove('toc-active'));
+          activeHeading = []; // 清空活动标题记录
+          tocLinks[index].classList.add('toc-active'); // 高亮对应目录项
+          activeHeading.push(tocLinks[index]); // 记录当前活动标题
+      }
+    });
+  }
+
   var toc = document.querySelector('.toc');
   var tocDetails = document.querySelector('.toc details');
   function autoCloseToc() {
     if (window.innerWidth >= 1280 && toc.classList.contains('toc-closed')) {
       tocDetails.removeAttribute('open');
     }
+    scrollToActiveHeading();
   }
   window.addEventListener('resize', autoCloseToc);
   if (tocDetails) {
@@ -117,6 +152,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+  // 监听滚动事件
+  window.addEventListener('scroll', scrollToActiveHeading);
+  scrollToActiveHeading();
 });
 </script>
 {{- end }}
