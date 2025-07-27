@@ -1,0 +1,36 @@
+{{- $section := .Section -}}
+{{- $current := .Current -}}
+<!-- {{- $current := .Current | default .CurrentPage }} -->
+{{- if $section }}
+  {{- range $section.Sections }}
+    {{- $isCurrent := or (eq $current.RelPermalink .RelPermalink) (in $current.RelPermalink .RelPermalink) }}
+    <!-- <li class="{{ if $isCurrent }}expanded{{ else }}collapsed{{ end }}"> -->
+        <!-- <div class="post-toc"> -->
+{{/*  {{ print $current.RelPermalink }}
+{{ print .RelPermalink }}  */}}
+            <details {{ if $isCurrent }} open {{ end }}>
+                <summary accesskey="c" title="(Alt + C)">
+                    <!-- <span class="details">{{ .Title }}</span> -->
+                    <a href="{{ .RelPermalink }}" class="{{ if eq $current.RelPermalink .RelPermalink }}node-active{{ end }}">{{ .Title }}</a>
+                </summary>
+                <dev class="sub-tree">
+                    {{- partial "tree.html" (dict "Section" . "Current" $current) -}}
+                </dev>
+            </details>
+        <!-- </dev> -->
+    <!-- </li> -->
+  {{- end }}
+  {{- range $section.Pages }}
+    {{- if not .IsSection }}
+      <dev class="tree-node">
+        <a href="{{ .RelPermalink }}" class="{{ if eq $current.RelPermalink .RelPermalink }}node-active{{ end }}">{{ .Title }}</a>
+      </dev>
+{{/*  {{ print $current.RelPermalink }}
+{{ print .RelPermalink }}
+{{- else }}
+
+{{ print $current.RelPermalink }}
+{{ print .RelPermalink }}  */}}
+    {{- end }}
+  {{- end }}
+{{- end }}

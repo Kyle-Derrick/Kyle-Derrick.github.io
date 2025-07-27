@@ -1,9 +1,10 @@
-.toc {
+.post-toc {
     margin: 0;
     border: 1px solid var(--border);
     background: var(--code-bg);
-    border-radius: var(--radius) 0 0 var(--radius);
-    padding: 5px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: .4em;
+    padding-left: 10px;
     overflow-y: auto;
     max-height: 80vh;
     box-shadow: 0 1px 8px rgba(0,0,0,0.1);
@@ -13,19 +14,23 @@
     position: fixed;
     top: calc(10vh);
     /* top: 50%; */
-    right: 0;
+    left: 0;
     /* transform: translateY(-50%); */
     height: auto;
     width: calc((100% - (var(--main-width) + var(--gap) * 2)) / 2);
     max-width: 360px;
     min-width: 250px;
     z-index: 98;
-}
 
-.toc .inner {
-    font-size: 16px;
+    transition: width 0.3s ease-in-out, 
+        min-width 0.3s ease-in-out, 
+        height 0.3s ease-in-out 0.3s, 
+        max-height 0.3s ease-in-out 0.3s, 
+        visibility .5s, 
+        opacity .8s linear;
+    opacity: .9;
 }
-
+/* 
 .toc, .toc-closed {
     transition: width 0.3s ease-in-out, 
         min-width 0.3s ease-in-out, 
@@ -33,13 +38,37 @@
         max-height 0.3s ease-in-out 0.3s, 
         visibility .5s, 
         opacity .8s linear;
+} */
+
+.post-toc .title {
+    font-size: 18px;
+    font-weight: bold;
 }
 
-/* .toc details .inner {
-    width: calc((100% - (var(--main-width) + var(--gap) * 2)) / 2 - 5px);
-    max-width: calc(360px - 5px);
-    min-width: calc(280px - 5px);
-} */
+.post-toc-tree {
+    font-size: 16px;
+}
+
+.post-toc .tree-node {
+    display: block;
+    font-size: 14px;
+}
+
+.post-toc a:hover {
+text-decoration: underline;
+}
+
+.post-toc .node-active {
+    font-weight: bold;
+    color: #2d96bd;
+    /* color: var(--text); */
+}
+
+.post-toc .sub-tree {
+    display: block;
+    padding-left: 1em;
+    padding-top: .4em;
+}
 
 .toc-closed {
     writing-mode: vertical-lr;
@@ -54,20 +83,7 @@
     padding: 10px 5px;
 }
 
-.toc-closed summary {
-  /* list-style: none; */
-  margin-inline-start: 0px !important;
-}
-/* 兼容WebKit内核浏览器（Chrome/Safari） */
-/* .toc-closed summary::-webkit-details-marker {
-    display: none; 
-} */
-/* 标准写法（Firefox/Edge） */
-/* .toc-closed summary::marker {
-  display: none;
-} */
-
-@media (max-width: 1279px) {
+/* @media (max-width: 1279px) {
     .toc-closed {
         writing-mode: horizontal-tb;
         text-align: start;
@@ -97,8 +113,12 @@
         z-index: auto;
         transition: width 0.3s, height 0.3s, visibility .5s, opacity .8s linear;
     }
+} */
 
-    .toc .inner {
-        font-size: 18px;
+
+
+@media (max-width: 1279px) {
+    .post-toc {
+        display: none;
     }
 }

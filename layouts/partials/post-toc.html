@@ -1,0 +1,10 @@
+
+<aside class="post-toc">
+  <span class="title">全部文章</span>
+  <dev class="post-toc-tree">
+    {{- $sections := site.GetPage "section" "posts" -}}
+    {{/*  {{- $current := .CurrentPage }}  */}}
+    {{- partial "tree.html" (dict "Section" $sections "Current" .Current) -}}
+    <!-- {{- partial "tree.html" (dict "Section" . "Current" $sections) -}} -->
+  </dev>
+</aside>
