@@ -355,10 +355,11 @@ summary: archives
 
 {{- if .Title }}
 <header class="page-header">
-    <h1>{{ .Title }}</h1>
     {{- if eq .Title "Tags" }}
         <h1>{{ "标签" }}</h1>
         <!-- <h1>{{ .Title }}</h1> -->
+    {{- else }}
+        <h1>{{ .Title }}</h1>
     {{- end }}
     {{- if .Description }}
     <div class="post-description">
