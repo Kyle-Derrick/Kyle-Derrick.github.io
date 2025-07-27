@@ -1,25 +1,35 @@
 .toc {
     margin: 0;
-    border: 1px solid var(--border);
-    background: var(--code-bg);
-    border-radius: var(--radius) 0 0 var(--radius);
+    border: 0;
+    /* border: 1px solid var(--border); */
+    border-left: 1px solid var(--border);
+    /* background: var(--code-bg); */
+    /* border-radius: var(--radius) 0 0 var(--radius); */
+    background: transparent;
+    border-radius: 0;
+    
     padding: 5px;
     overflow-y: auto;
-    max-height: 80vh;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+    height: 80vh;
+    /* box-shadow: 0 1px 8px rgba(0,0,0,0.1); */
 
     font-size: 18px;
 
     position: fixed;
     top: calc(10vh);
-    /* top: 50%; */
     right: 0;
-    /* transform: translateY(-50%); */
-    height: auto;
+    /* height: auto; */
     width: calc((100% - (var(--main-width) + var(--gap) * 2)) / 2);
     max-width: 360px;
     min-width: 250px;
     z-index: 98;
+
+    opacity: .8;
+}
+
+
+.dark .toc {
+    background: transparent;
 }
 
 .toc .inner {
@@ -27,12 +37,11 @@
 }
 
 .toc, .toc-closed {
-    transition: width 0.3s ease-in-out, 
-        min-width 0.3s ease-in-out, 
-        height 0.3s ease-in-out 0.3s, 
-        max-height 0.3s ease-in-out 0.3s, 
-        visibility .5s, 
-        opacity .8s linear;
+    transition: width 0.2s ease-in-out, 
+        min-width 0.2s ease-in-out, 
+        height 0.1s ease-in-out 0.2s, 
+        visibility .3s, 
+        opacity .5s linear;
 }
 
 /* .toc details .inner {
@@ -46,7 +55,7 @@
     text-align: center;
     width: 34px;
     height: 81px;
-    max-height: 81px;
+    /* max-height: 81px; */
     min-width: 42px;
     font-size: 16px;
     z-index: 99;
@@ -71,6 +80,11 @@
     .toc-closed {
         writing-mode: horizontal-tb;
         text-align: start;
+    }
+
+
+    .dark .toc {
+        background: var(--entry);
     }
 
     .toc {

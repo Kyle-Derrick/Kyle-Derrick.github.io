@@ -1,22 +1,21 @@
 .post-toc {
     margin: 0;
-    border: 1px solid var(--border);
-    background: var(--code-bg);
-    border-radius: 0 var(--radius) var(--radius) 0;
+    /* border: 1px solid var(--border); */
+    border-right: 1px solid var(--border);
+    /* background: var(--code-bg); */
+    /* border-radius: 0 var(--radius) var(--radius) 0; */
     padding: .4em;
     padding-left: 10px;
     overflow-y: auto;
-    max-height: 80vh;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+    height: 80vh;
+    /* box-shadow: 0 1px 8px rgba(0,0,0,0.1); */
 
     font-size: 18px;
 
     position: fixed;
     top: calc(10vh);
-    /* top: 50%; */
     left: 0;
-    /* transform: translateY(-50%); */
-    height: auto;
+    /* height: auto; */
     width: calc((100% - (var(--main-width) + var(--gap) * 2)) / 2);
     max-width: 360px;
     min-width: 250px;
@@ -28,17 +27,19 @@
         max-height 0.3s ease-in-out 0.3s, 
         visibility .5s, 
         opacity .8s linear;
-    opacity: .9;
+    opacity: .8;
 }
-/* 
-.toc, .toc-closed {
-    transition: width 0.3s ease-in-out, 
-        min-width 0.3s ease-in-out, 
-        height 0.3s ease-in-out 0.3s, 
-        max-height 0.3s ease-in-out 0.3s, 
-        visibility .5s, 
-        opacity .8s linear;
-} */
+
+.post-toc summary::marker {
+    content: "|";
+    font-weight: bolder;
+    margin-right: .5rem;
+    color: var(--secondary);
+}
+
+.post-toc summary.summary-active::marker {
+    color: var(--node-active-color)
+}
 
 .post-toc .title {
     font-size: 18px;
@@ -49,8 +50,16 @@
     font-size: 16px;
 }
 
+.post-toc .tree-node::marker {
+    color: var(--secondary);
+}
+
+.post-toc .tree-node.node-active::marker {
+    color: var(--node-active-color)
+}
+
 .post-toc .tree-node {
-    display: block;
+    display: list-item;
     font-size: 14px;
 }
 
@@ -60,7 +69,7 @@ text-decoration: underline;
 
 .post-toc .node-active {
     font-weight: bold;
-    color: #2d96bd;
+    color: var(--node-active-color)
     /* color: var(--text); */
 }
 
@@ -82,40 +91,6 @@ text-decoration: underline;
 
     padding: 10px 5px;
 }
-
-/* @media (max-width: 1279px) {
-    .toc-closed {
-        writing-mode: horizontal-tb;
-        text-align: start;
-    }
-
-    .toc {
-        margin: 0 2px 40px 2px;
-        border: 1px solid var(--border);
-        background: var(--code-bg);
-        border-radius: var(--radius);
-        padding: 0.4em;
-
-        font-size: 18px;
-    
-        overflow-y: auto;
-        max-height: auto;
-        box-shadow: none;
-
-        display: block;
-        position: static;
-        top: auto;
-        right: auto;
-        width: 100%;
-        max-width: 100%;
-        min-width: auto;
-        height: auto;
-        z-index: auto;
-        transition: width 0.3s, height 0.3s, visibility .5s, opacity .8s linear;
-    }
-} */
-
-
 
 @media (max-width: 1279px) {
     .post-toc {
