@@ -4,7 +4,7 @@
     <title>Kyle&#39;s Notebook</title>
     <link>https://Kyle-Derrick.github.io/zh/</link>
     <description>Recent content on Kyle&#39;s Notebook</description>
-    <generator>Hugo -- 0.148.1</generator>
+    <generator>Hugo -- 0.148.2</generator>
     <language>zh</language>
     <lastBuildDate>Sat, 26 Jul 2025 16:25:28 +0800</lastBuildDate>
     <atom:link href="https://Kyle-Derrick.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
@@ -42,6 +42,13 @@
       <pubDate>Sat, 26 Jul 2025 16:19:38 +0800</pubDate>
       <guid>https://Kyle-Derrick.github.io/zh/posts/tech/c/linux_c_03_%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B/</guid>
       <description>来源于多年前记录的笔记</description>
+    </item>
+    <item>
+      <title>JNA引用相关细节记录</title>
+      <link>https://Kyle-Derrick.github.io/zh/posts/tech/java/jna%E5%BC%95%E7%94%A8/</link>
+      <pubDate>Wed, 23 Jul 2025 14:25:55 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/posts/tech/java/jna%E5%BC%95%E7%94%A8/</guid>
+      <description>记录来源于AI回答</description>
     </item>
     <item>
       <title>UDP打洞原理及流程</title>

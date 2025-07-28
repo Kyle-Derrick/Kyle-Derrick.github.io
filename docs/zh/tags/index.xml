@@ -4,7 +4,7 @@
     <title>Tags on Kyle&#39;s Notebook</title>
     <link>https://Kyle-Derrick.github.io/zh/tags/</link>
     <description>Recent content in Tags on Kyle&#39;s Notebook</description>
-    <generator>Hugo -- 0.148.1</generator>
+    <generator>Hugo -- 0.148.2</generator>
     <language>zh</language>
     <lastBuildDate>Sat, 26 Jul 2025 16:25:28 +0800</lastBuildDate>
     <atom:link href="https://Kyle-Derrick.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -34,6 +34,13 @@
       <link>https://Kyle-Derrick.github.io/zh/tags/linux/</link>
       <pubDate>Sat, 26 Jul 2025 16:19:38 +0800</pubDate>
       <guid>https://Kyle-Derrick.github.io/zh/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://Kyle-Derrick.github.io/zh/tags/java/</link>
+      <pubDate>Wed, 23 Jul 2025 14:25:55 +0800</pubDate>
+      <guid>https://Kyle-Derrick.github.io/zh/tags/java/</guid>
       <description></description>
     </item>
     <item>
@@ -160,13 +167,6 @@
       <link>https://Kyle-Derrick.github.io/zh/tags/gradle/</link>
       <pubDate>Mon, 21 Jul 2025 22:30:46 +0800</pubDate>
       <guid>https://Kyle-Derrick.github.io/zh/tags/gradle/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Java</title>
-      <link>https://Kyle-Derrick.github.io/zh/tags/java/</link>
-      <pubDate>Mon, 21 Jul 2025 22:30:46 +0800</pubDate>
-      <guid>https://Kyle-Derrick.github.io/zh/tags/java/</guid>
       <description></description>
     </item>
     <item>
